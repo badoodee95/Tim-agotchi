@@ -47,7 +47,7 @@ export default function Profile() {
         }
 
 
-    }, []);
+    }, [router]);
 
     if (isLoading) return <p>Loading...</p>;
     if (!data) return <p>No data shown...</p>;
