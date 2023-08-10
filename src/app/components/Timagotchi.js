@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Timagotchi({ name, age, hunger, mood, friendship }) {
     return (
-        <>
-            <div className="card mt-5" style={{ maxWidth: '40%', margin: 'auto' }}>
+        <div style={{marginTop: '7%'}}>
+            <div className="card" style={{ maxWidth: '35%', margin: 'auto' }}>
                 <div className="row justify-content-center align-items-center">
                     <div className="col-md-12 text-center">
                         <h2>{name}</h2>
@@ -15,7 +15,7 @@ export default function Timagotchi({ name, age, hunger, mood, friendship }) {
                 <div className="row justify-content-center align-items-center">
                     <div className="col-md-9 text-center">
                         <img src="https://i.imgur.com/gNySDzV.png" alt="Timagotchi" className="img-fluid" />
-                        <div className='progress-container' style={{ maxWidth: '50%', margin: 'auto' }}>
+                        <div className='progress-container' style={{ maxWidth: '90%', margin: 'auto' }}>
                             <div className="progress-label">Hunger:</div>
                             <div className="progress mb-3">
                                 <div
@@ -51,6 +51,6 @@ export default function Timagotchi({ name, age, hunger, mood, friendship }) {
                 <button className="btn btn-success mx-1">Feed</button>
                 <button className="btn btn-success mx-1">Play</button>
             </div>
-        </>
+        </div>
     );
 };
