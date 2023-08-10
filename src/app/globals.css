@@ -17,3 +17,7 @@
 .btn-custom-color {
     background-color: #1FFA06;
 }
+
+.underlined {
+    text-decoration: underline;
+}
