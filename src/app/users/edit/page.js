@@ -29,14 +29,14 @@ export default function EditUser() {
 	setAuthToken(localStorage.getItem('jwtToken'));
 
 	const expirationTime = new Date(parseInt(localStorage.getItem('expiration')) * 1000);
-    let currentTime = Date.now();
+	let currentTime = Date.now();
 
-    // make a condition that compares exp and current time
-    if (currentTime >= expirationTime) {
-        handleLogout();
-        alert('Session has ended. Please login to continue.');
-        router.push('/users/login');
-    }
+	// make a condition that compares exp and current time
+	if (currentTime >= expirationTime) {
+		handleLogout();
+		alert('Session has ended. Please login to continue.');
+		router.push('/users/login');
+	}
 
 	// create the 
 	const handleFirstName = (e) => {
@@ -116,7 +116,7 @@ export default function EditUser() {
 
 	useEffect(() => {
 		if (localStorage.getItem('jwtToken')) {
-			axois.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/email/${localStorage.getItem('email')}`)
+			axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/email/${localStorage.getItem('email')}`)
 				.then((response) => {
 					// data is an object
 					let userData = jwtDecode(localStorage.getItem('jwtToken'));
