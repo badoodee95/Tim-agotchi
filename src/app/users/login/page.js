@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import setAuthToken from '@/app/utils/setAuthToken';
 import jwtDecode from 'jwt-decode';
+import Link from 'next/link';
 
 
 export default function Login() {
@@ -100,8 +101,8 @@ export default function Login() {
                                                 className="btn btn- btn-block btn-lg gradient-custom-4 text-body">Login</button>
                                         </div>
 
-                                        <p className="text-center mt-5 mb-0 ">Already have an account? <a href="/users/login"
-                                            className="fw-bold text-body"><u>Login here</u></a></p>
+                                        <p className="text-center mt-5 mb-0 "> No Account? <Link href="/users/signup"
+                                            className="fw-bold text-body"><u>Sign Up here</u></Link></p>
                                     </form>
                                 </div>
                             </div>
