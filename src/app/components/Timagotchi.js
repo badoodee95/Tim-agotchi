@@ -15,7 +15,7 @@ export default function Timagotchi({ name, age, hunger, mood, friendship }) {
                 <div className="row justify-content-center align-items-center">
                     <div className="col-md-9 text-center">
                         <img src="https://i.imgur.com/gNySDzV.png" alt="Timagotchi" className="img-fluid" />
-                        <div className='progress-container' style={{ maxWidth: '50%', margin: 'auto' }}>
+                        <div className='progress-container' style={{ maxWidth: '90%', margin: 'auto' }}>
                             <div className="progress-label">Hunger:</div>
                             <div className="progress mb-3">
                                 <div
