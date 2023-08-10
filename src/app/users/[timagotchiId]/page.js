@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
@@ -14,7 +14,6 @@ export default function TimagotchiPage() {
         axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/64d46540530ee66922af7239/${timagotchiId}`)
         .then((response) => {
             const foundTimagotchi = response.data.timagotchi;  
-            console.log('foundTimagotchi', foundTimagotchi)
             setTimagotchi(foundTimagotchi);
         })
         .catch((error) => {
