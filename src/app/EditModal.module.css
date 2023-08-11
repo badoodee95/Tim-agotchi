@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'PrettyWeirdo';
+    src: url('./fonts/Pretty\ Weirdo\ Fill.otf');
+}
+
+@font-face {
+    font-family: 'PrettyWeirdo2';
+    src: url('./fonts/Pretty\ Weirdo\ Outline.otf');
+}
+
+@font-face {
+    font-family: 'PrettyWeirdo';
+    src: url('./fonts/Pretty\ Weirdo\ Fill.otf');
+}
+
+#buttonText {
+    font-family: 'PrettyWeirdo';
+}

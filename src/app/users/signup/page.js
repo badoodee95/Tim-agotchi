@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import styles from '@/app/signup.module.css';
 
 const Signup = () => {
 	const [email, setEmail] = useState('');
@@ -92,7 +93,7 @@ const Signup = () => {
 				<div className="container h-100">
 					<div className="row d-flex justify-content-center align-items-center h-100">
 						<div className="col-12 col-md-9 col-lg-7 col-xl-6">
-							<div className="card" style={{ borderRadius: "15px", backgroundColor: 'rgba(210, 91, 234, 0.5)' }}>
+							<div className="card" id={styles.signupBox} style={{ borderRadius: "15px", backgroundColor: 'rgba(210, 91, 234, 0.5)' }}>
 								<div className="card-body p-5">
 									<h2 className="text-center mb-5 text-light">Create your Timagotchi Account</h2>
 
