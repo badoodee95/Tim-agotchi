@@ -19,15 +19,14 @@ export default function TimagotchiPage() {
         .catch((error) => {
             console.log('Error fetching timagotchi data', error);
         });
-    }
-    ), [];
+    }, [timagotchiId]);
 
     if (!timagotchi.name) return (<div>Loading...</div>);
 
     return (
         <div>
             <Header />
-            <Timagotchi name={timagotchi.name} age={timagotchi.age} hunger={timagotchi.food} mood={timagotchi.mood} friendship={timagotchi.friendship.value} />
+            <Timagotchi timagotchi={timagotchi} />
         </div>
     )
 }
