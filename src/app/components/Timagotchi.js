@@ -105,17 +105,17 @@ export default function Timagotchi({ timagotchi }) {
                             {/* {timagotchi.hasPoooped &&
                                 <div style={{ marginTop: '76%' }}>
                                     <a onClick={handlePoop} style={{ cursor: 'pointer' }}>
-                                        <img src='https://i.imgur.com/nXo4YeR.png' alt='Timagotchi poop' className='img-fluid' />
+                                        <img src='https://i.imgur.com/Z4pfFD7.png' alt='Timagotchi poop' className='' />
                                     </a>
                                 </div>
                             } */}
                             <div style={{ marginTop: '76%' }}>
                                 <a onClick={handlePoop} style={{ cursor: 'pointer' }}>
-                                    <img src='https://i.imgur.com/nXo4YeR.png' alt='Timagotchi poop' className='img-fluid' />
+                                    <img src='https://i.imgur.com/Z4pfFD7.png' alt='Timagotchi poop' className='' />
                                 </a>
                             </div>
                         </div>
-                        <div className='progress-container' style={{ maxWidth: '90%', margin: 'auto' }}>
+                        <div className='progress-container mt-2' style={{ maxWidth: '90%', margin: 'auto' }}>
                             <div className="progress-label">Hunger:</div>
                             <div className="progress mb-3">
                                 <div
