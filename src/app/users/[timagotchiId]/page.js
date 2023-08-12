@@ -13,6 +13,7 @@ export default function TimagotchiPage() {
     useEffect(() => {
         axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/${timagotchiId}`)
             .then((response) => {
+                console.log('timagotchi page response', response.data);
                 setTimagotchi(response.data.timagotchi);
             })
             .catch((error) => {

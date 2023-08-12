@@ -50,8 +50,8 @@ export default function MyTimagotchiList({ currentUser }) {
             <h4 className='underlined'>CLICK <Link href='/users/new-timaghotchi'>HERE</Link> TO CREATE ONE</h4>
         </div>);
     } else {
-        tims.forEach((Timagotchi, index) => {
-            rows.push(<MyTimagotchi Timagotchi={Timagotchi} key={index} />);
+        tims.forEach((timagotchi, index) => {
+            rows.push(<MyTimagotchi Timagotchi={timagotchi} key={timagotchi._id} />);
         });
     }
 
