@@ -16,3 +16,30 @@
 #buttonText {
     font-family: 'PrettyWeirdo';
 }
+
+#modalTitle {
+    font-family: 'PrettyWeirdo';
+    color: blue
+}
+
+#emailTitle {
+    font-family: 'PrettyWeirdo';
+    color: red;
+}
+
+#firstName {
+    font-family: 'PrettyWeirdo';
+    color: pink;
+}
+
+#lastName {
+    font-family: 'PrettyWeirdo';
+    color: green;
+}
+
+#backgroundImage {
+    background-image: url('https://img.freepik.com/free-vector/sky-background-video-conferencing_23-2148625271.jpg?w=2000&t=st=1691863168~exp=1691863768~hmac=de9c6c64cb107fc6516a63866e131a0789fe74157faf9840844366aea1e1bfa1');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+

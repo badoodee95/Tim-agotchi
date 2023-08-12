@@ -28,5 +28,5 @@ export default function TimagotchiPage() {
             <Header />
             <Timagotchi timagotchi={timagotchi} />
         </div>
-    );
+    )
 }
