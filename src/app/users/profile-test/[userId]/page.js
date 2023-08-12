@@ -1,15 +1,34 @@
 'use client';
 import MyTimagotchiList from '@/app/components/MyTimagotchisList';
 import 'bootstrap/dist/css/bootstrap.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import { useParams } from 'next/navigation';
 import EditModal from '@/app/components/EditModal';
 import styles from '@/app/profile.module.css';
+import axios from 'axios';
+import Loading from '@/app/components/Loading';
 
 export default function ProfileTest() {
 
-    const { currentUserId } = useParams();
+    const { userId } = useParams();
+    const [user, setUser] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${userId}`);
+                console.log('profile page response', response.data);
+                setUser(response.data.user);
+                setIsLoading(false);
+            } catch (error) {
+                console.log('Error fetching user data', error);
+            }
+        };
 
+        fetchUserData();
+    }, [userId]);
+
+    if (isLoading) return (<Loading />);
 
     return (
         <>
@@ -17,7 +36,7 @@ export default function ProfileTest() {
             <section className='vh-100 bg-image' id={styles.backgroundImage} style={{ overflowX: 'hidden', overflowY: 'auto' }}>
                 <div className="container">
                     <div className="main-body" >
-                        <div className="row gutters-sm">
+                        <div className="row gutters-sm" style={{ justifyContent: 'center' }}>
                             {/* <div className="col-md-2 mb-3"> */}
                             <div className="col-lg-2 mb-2">
                                 <div className="card mt-4" id={styles.profileBorder} >
@@ -35,6 +54,7 @@ export default function ProfileTest() {
                                     </div>
                                 </div>
                             </div>
+
                             <div className="col-md-8 mt-4">
                                 <div className="mt-2">
                                 </div>
@@ -43,11 +63,11 @@ export default function ProfileTest() {
                                         <div className="row gx-3 mb-3">
                                             <div className="col-md-6">
                                                 <h6 className="mb-0" id={styles.firstNameTitle}>FIRST NAME</h6>
-                                                <div className="mb-1 pt-2 text-secondary" id={styles.firstName}>VALERIE</div>
+                                                <div className="mb-1 pt-2 text-secondary" id={styles.firstName}>{user.firstName}</div>
                                             </div>
                                             <div className="col-md-6">
                                                 <h6 className="mb-0" id={styles.lastNameTitle}>LAST NAME</h6>
-                                                <div className="mb-1 pt-2 text-secondary" id={styles.lastName}>LUNA</div>
+                                                <div className="mb-1 pt-2 text-secondary" id={styles.lastName}>{user.lastName}</div>
                                             </div>
                                         </div>
                                         <hr />
@@ -56,7 +76,7 @@ export default function ProfileTest() {
                                                 <h6 className="mb-0" id={styles.emailTitle}>EMAIL</h6>
                                             </div>
                                             <div className="col-sm-9 text-secondary" id={styles.email}>
-                                                VALERIE.LUNA@MAIL.COM
+                                                {user.email}
                                             </div>
                                         </div>
                                         <hr />
@@ -67,8 +87,9 @@ export default function ProfileTest() {
 
                     </div>
                 </div>
+                <br />
                 <div>
-                    <MyTimagotchiList currentUserId={currentUserId} />
+                    <MyTimagotchiList currentUser={user} />
                 </div>
             </section >
         </>
