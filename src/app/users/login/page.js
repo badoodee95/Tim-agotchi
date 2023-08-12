@@ -42,15 +42,15 @@ export default function Login() {
                 }
             })
             .catch(error => {
-                if (error.response.data.message === 'User not found') {
-                    console.log('===> Error in Login', error.response.data.message);
-                    setError(true);
-                }
+                // if (error.response.data.message === 'User not found') {
+                console.log('===> Error in Login', error);
+                setError(true);
+                // }
             });
 
     };
     useEffect(() => {
-        if (redirect) { router.push('/users/profile'); }
+        if (redirect) { router.push('/users/profile-test'); }
     }, [redirect, router]);
     if (error) {
         return (

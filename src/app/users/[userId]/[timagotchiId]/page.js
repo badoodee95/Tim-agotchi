@@ -8,18 +8,18 @@ import Header from "@/app/components/Header";
 
 export default function TimagotchiPage() {
     const { timagotchiId } = useParams();
+    const { userId } = useParams();
     const [timagotchi, setTimagotchi] = useState({});
 
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/64d46540530ee66922af7239/${timagotchiId}`)
-        .then((response) => {
-            const foundTimagotchi = response.data.timagotchi;  
-            setTimagotchi(foundTimagotchi);
-        })
-        .catch((error) => {
-            console.log('Error fetching timagotchi data', error);
-        });
-    }, [timagotchiId]);
+        axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/${userId}/${timagotchiId}`)
+            .then((response) => {
+                setTimagotchi(response.data.timagotchi);
+            })
+            .catch((error) => {
+                console.log('Error fetching timagotchi data', error);
+            });
+    }, [timagotchiId, userId]);
 
     if (!timagotchi.name) return (<div>Loading...</div>);
 
@@ -28,5 +28,5 @@ export default function TimagotchiPage() {
             <Header />
             <Timagotchi timagotchi={timagotchi} />
         </div>
-    )
+    );
 }

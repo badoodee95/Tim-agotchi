@@ -34,7 +34,7 @@ export default function Example() {
                         <Form.Control
                             type="text"
                             placeholder="First Name"
-                            autoFocus
+
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="Last Name">
@@ -42,7 +42,7 @@ export default function Example() {
                         <Form.Control
                             type="text"
                             placeholder="Last Name"
-                            autoFocus
+
                         />
                     </Form.Group>
                 </Form>
