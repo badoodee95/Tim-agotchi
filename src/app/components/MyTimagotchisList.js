@@ -7,21 +7,20 @@ import axios from "axios";
 import Link from "next/link";
 import { el } from "@faker-js/faker";
 
-export default function MyTimagotchiList({ currentUserId }) {
+export default function MyTimagotchiList({ currentUser }) {
 
     const router = useRouter();
-    const [loggedInUser, setLoggedInUser] = useState(null);
+    const [loggedInUserId, setLoggedInUserId] = useState(null);
     const [tims, setTims] = useState([]);
     const [redirect, setRedirect] = useState(false);
 
     useEffect(() => {
         // setAuthToken(localStorage.getItem('jwtToken'));
         // if (localStorage.getItem('jwtToken')) {
-        setLoggedInUser(localStorage.getItem('userId'));
-        axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/my-timagotchis/${localStorage.getItem('userId')}`)
+        setLoggedInUserId(localStorage.getItem('userId'));
+        axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/my-timagotchis/${currentUser._id}`)
             .then((response) => {
                 // data is an object
-                console.log('response', response.data);
                 setTims(response.data);
                 // let userData = jwtDecode(localStorage.getItem('jwtToken'));
                 // if (userData.email === localStorage.getItem('email')) {
@@ -39,12 +38,12 @@ export default function MyTimagotchiList({ currentUserId }) {
         // } else {
         //     router.push('/users/login');
         // }
-    }, [router]);
+    }, [router, currentUser]);
 
 
     let rows = [];
     if (tims.length === 0) {
-        rows.push(<div className="justify-content-center" >
+        rows.push(<div >
             <br />
             <br />
             <h4 className='underlined'>NO TIMAGOTCHIS YET</h4>
@@ -59,10 +58,14 @@ export default function MyTimagotchiList({ currentUserId }) {
     return (
         <section>
             <div className="d-flex justify-content-center" >
-                <h1 className='underlined'>MY TIMAGOTCHIS</h1>
+                {currentUser._id === loggedInUserId ?
+                    <h1 className='underlined'>MY TIMAGOTCHIS</h1>
+                    :
+                    <h1 className='underlined'>{currentUser.firstName}&apos;s TIMAGOTCHIS</h1>
+                }
             </div>
             <div className='container'>
-                <div className='row row-cols-auto'>
+                <div className='row row-cols-auto' style={{ justifyContent: 'center' }}>
                     {rows}
 
                 </div>
