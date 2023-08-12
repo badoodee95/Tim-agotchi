@@ -12,17 +12,18 @@ export default function TimagotchiPage() {
     const { timagotchiId } = useParams();
     const [timagotchi, setTimagotchi] = useState({});
     const [isLoading, setIsLoading] = useState(true);
-    useEffect(() => {
-        try {
-            const response = async () => await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/${timagotchiId}`);
-            console.log('timagotchi page response', response.data);
-            setTimagotchi(response.data.timagotchi);
-            setIsLoading(false);
-        } catch (error) {
-            console.log('Error fetching timagotchi data', error);
-        }
-    }, [timagotchiId]);
 
+    useEffect(() => {
+        axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/${timagotchiId}`)
+            .then((response) => {
+                console.log('timagotchi page response', response.data);
+                setTimagotchi(response.data.timagotchi);
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, [timagotchiId]);
 
     if (isLoading) return (<Loading />);
 
