@@ -35,6 +35,17 @@
     width: 100vw;
     position: fixed;
     z-index: -1;
+}
+
+#viewAllUsers{
+    background-image: url('./images/ProfileBackground1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: -1;
     overflow-x: 'hidden';
     overflow-y: 'auto';
     display: grid;
