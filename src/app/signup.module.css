@@ -12,3 +12,35 @@
   src: url('./fonts/Pretty\ Weirdo\ Outline.otf');
 }
 
+#titleText {
+  font-family: 'PrettyWeirdo';
+}
+
+#email {
+  font-family: 'PrettyWeirdo2';
+}
+
+#password {
+  font-family: 'PrettyWeirdo2';
+}
+
+#firstName {
+  font-family: 'PrettyWeirdo2';
+}
+
+#lastName {
+  font-family: 'PrettyWeirdo2';
+}
+
+#location {
+  font-family: 'PrettyWeirdo2';
+}
+
+#birthdate {
+  font-family: 'PrettyWeirdo2';
+}
+
+#buttonText {
+  font-family: 'PrettyWeirdo2';
+  color: palevioletred;
+}
