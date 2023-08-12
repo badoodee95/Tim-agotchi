@@ -50,7 +50,7 @@ export default function Login() {
 
     };
     useEffect(() => {
-        if (redirect) { router.push('/users/profile'); }
+        if (redirect) { router.push('/users/profile-test'); }
     }, [redirect, router]);
     if (error) {
         return (
