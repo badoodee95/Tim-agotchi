@@ -12,6 +12,7 @@ export default function TimagotchiPage() {
     const { timagotchiId } = useParams();
     const [timagotchi, setTimagotchi] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
         axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/${timagotchiId}`)
             .then((response) => {
@@ -23,7 +24,6 @@ export default function TimagotchiPage() {
                 console.log(error);
             });
     }, [timagotchiId]);
-
 
     if (isLoading) return (<Loading />);
 

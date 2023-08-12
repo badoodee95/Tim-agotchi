@@ -28,15 +28,21 @@ export default function Timagotchi({ timagotchi }) {
     let cleanButton;
 
     if (timagotchi.food.status === 'Hungry') {
-        feedButton = <button className="btn btn-success mx-1" onClick={handleFeed}>Feed</button>
+        feedButton = <button className="btn btn-success mx-1" onClick={handleFeed}>Feed</button>;
     } else {
-        feedButton = <button className="btn btn-secondary mx-1 disabled">Feed</button>
+        feedButton = <button className="btn btn-secondary mx-1 disabled">Feed</button>;
     }
 
     if (timagotchi.mood.status === 'Bored') {
-        playButton = <button className="btn btn-success mx-1" onClick={handlePlay}>Play</button>
+        playButton = <button className="btn btn-success mx-1" onClick={handlePlay}>Play</button>;
     } else {
-        playButton = <button className="btn btn-secondary mx-1 disabled">Play</button>
+        playButton = <button className="btn btn-secondary mx-1 disabled">Play</button>;
+    }
+
+    if (timagotchi.cleanliness.status === 'Clean') {
+        cleanButton = <button className="btn btn-secondary mx-1 disabled">Clean</button>;
+    } else {
+        cleanButton = <button className="btn btn-success mx-1" onClick={handleClean}>Clean</button>;
     }
 
     if (timagotchi.cleanliness.status === 'Clean') {
