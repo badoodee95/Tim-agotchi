@@ -32,7 +32,6 @@ export default function ProfileTest() {
 
     return (
         <>
-            {/* <section className='vh-100 bg-image' style={{ backgroundImage: 'url(https://img.freepik.com/free-vector/animal-background-with-cute-pets-illustration_53876-111987.jpg?w=2000&t=st=1691698837~exp=1691699437~hmac=761e22792f0828ae53444c21bd0406f9b83f5490606f90345dbc4c98e7dae30f)', backgroundSize: 'cover', }}> */}
             <section className='vh-100 bg-image' id={styles.backgroundImage} style={{ overflowX: 'hidden', overflowY: 'auto' }}>
                 <div className="container">
                     <div className="main-body" >
