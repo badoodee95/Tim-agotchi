@@ -12,7 +12,11 @@ export default function Timagotchi({ timagotchi }) {
 
     const router = useRouter();
 
-    const userId = localStorage.getItem('userId');
+    let userId;
+
+    if (typeof window !== 'undefined') {
+        userId = localStorage.getItem('userId');
+    }
 
     const roundedFood = Math.round(timagotchi.food.value);
     const roundedMood = Math.round(timagotchi.mood.value);
