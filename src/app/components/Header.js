@@ -27,7 +27,10 @@ export default function Header() {
                                 <Link className="hover nav-link" href={`/users/profile-test/${localStorage.getItem('userId')}`}>Profile</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="hover nav-link" href="#">Create New Tim-agotchi</Link>
+                                <Link className="hover nav-link" href="/users/new-timagotchi">Create New Tim-agotchi</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="hover nav-link" href="/users/all">View All Users</Link>
                             </li>
                             <hr />
                             <li className="nav-item">

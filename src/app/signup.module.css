@@ -16,6 +16,10 @@
   font-family: 'PrettyWeirdo';
 }
 
+.filledInText{
+  font-family: 'PrettyWeirdo';
+}
+
 #email {
   font-family: 'PrettyWeirdo2';
 }
@@ -41,6 +45,6 @@
 }
 
 #buttonText {
-  font-family: 'PrettyWeirdo2';
+  font-family: 'PrettyWeirdo';
   color: palevioletred;
 }
