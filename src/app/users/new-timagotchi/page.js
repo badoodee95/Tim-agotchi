@@ -1,8 +1,10 @@
-
+'use client';
+import styles from '@/app/signup.module.css';
 
 
 
 export default function NewTimagotchi() {
+
     return (
         <section className="vh-100 bg-image"
             style={{ backgroundImage: "url('https://img.freepik.com/free-vector/hand-drawn-international-cat-day-background_23-2149487428.jpg?w=2000&t=st=1691642130~exp=1691642730~hmac=cfdf3c304f91a859462f333b680b81ed3fe3679f91f4a1420e56f48c4ef94ccd')", backgroundSize: "cover", backgroundPosition: "center" }}
@@ -11,27 +13,27 @@ export default function NewTimagotchi() {
                 <div className="container h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-                            <div className="card" style={{ borderRadius: "15px", backgroundColor: 'rgba(210, 91, 234, 0.5)' }}>
+                            <div className="card" style={{ borderRadius: "15px", backgroundColor: 'rgba(210, 91, 234, 0.9)' }}>
                                 <div className="card-body p-5">
-                                    <h2 className="text-center mb-5 text-light">Add a New Timagotchi</h2>
-
+                                    <h2 className={`text-center mb-5 text-light ${styles.filledInText} `}>CREATE A NEW TIMAGOTCHI</h2>
                                     <form>
-
                                         <div className="form-outline mb-4 text-light text-center">
-                                            <label className="form-label" htmlFor="form3Example1cg">Name</label>
-                                            <input type="text" id="form3Example1cg" className="form-control form-control-lg" />
+                                            <input type="text" id="form3Example1cg" className={`form-control form-control-lg ${styles.filledInText}`} placeholder='NAME' />
                                         </div>
-
                                         <div className="form-outline mb-4 text-light text-center">
-                                            <label className="form-label" htmlFor="form3Example3cg">Gender</label>
-                                            <input type="email" id="form3Example3cg" className="form-control form-control-lg" />
+                                            <select className={`form-control form-control-lg ${styles.filledInText}`}>
+                                                <option value="gender-type" selected disabled>CHOOSE A GENDER</option>
+                                                <option value="male">MALE</option>
+                                                <option value="female">FEMALE</option>
+                                            </select>
                                         </div>
-
                                         <div className="form-outline mb-4 text-light text-center">
-                                            <label className="form-label" htmlFor="form3Example4cg">Type</label>
-                                            <input type="password" id="form3Example4cg" className="form-control form-control-lg" />
+                                            <select className={`form-control form-control-lg ${styles.filledInText}`}>
+                                                <option value="tim-type" selected disabled>CHOOSE A TYPE</option>
+                                                <option value="dog">DOG</option>
+                                                <option value="cat">CAT</option>
+                                            </select>
                                         </div>
-
                                         <div className="d-flex justify-content-center">
                                             <button type="button"
                                                 className="btn btn-outline-success btn-lg gradient-custom-4 text-body">Create</button>

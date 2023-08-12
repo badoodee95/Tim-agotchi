@@ -47,7 +47,7 @@ export default function MyTimagotchiList({ currentUser }) {
             <br />
             <br />
             <h4 className='underlined'>NO TIMAGOTCHIS YET</h4>
-            <h4 className='underlined'>CLICK <Link href='/users/new-timaghotchi'>HERE</Link> TO CREATE ONE</h4>
+            <h4 className='underlined'>CLICK <Link href='/users/new-timagotchi'>HERE</Link> TO CREATE ONE</h4>
         </div>);
     } else {
         tims.forEach((timagotchi, index) => {
