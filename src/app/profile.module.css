@@ -1,74 +1,71 @@
-nav ul li {
-    text-decoration: none;
-    display: inline-block;
-    margin-right: .3em;
-  }
-  
-  h1 {
-    color: chartreuse;
-  }
-  
-  .gradient-custom {
-    /* fallback for old browsers */
-    background: #6a11cb;
-    
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
-    
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
-    }
-  
-    body{
-      margin-top:20px;
-      color: #1a202c;
-      text-align: left;
-      background-color: #e2e8f0;    
-  }
-  .main-body {
-      padding: 15px;
-  }
-  .card {
-      box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
-  }
-  
-  .card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      word-wrap: break-word;
-      background-color: #fff;
-      background-clip: border-box;
-      border: 0 solid rgba(0,0,0,.125);
-      border-radius: .25rem;
-  }
-  
-  .card-body {
-      flex: 1 1 auto;
-      min-height: 1px;
-      padding: 1rem;
-  }
-  
-  .gutters-sm {
-      margin-right: -8px;
-      margin-left: -8px;
-  }
-  
-  .gutters-sm>.col, .gutters-sm>[class*=col-] {
-      padding-right: 8px;
-      padding-left: 8px;
-  }
-  .mb-3, .my-3 {
-      margin-bottom: 1rem!important;
-  }
-  
-  .bg-gray-300 {
-      background-color: #e2e8f0;
-  }
-  .h-100 {
-      height: 100%!important;
-  }
-  .shadow-none {
-      box-shadow: none!important;
-  }
+#profileBorder {
+    border: 15px solid transparent;
+    border-image: url('https://static.vecteezy.com/system/resources/previews/015/314/464/non_2x/abstract-modern-elegant-blue-gold-frame-border-social-media-free-png.png') 30 round;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 175px;
+    height: 200px;
+}
+
+#profileImagePlacement {
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+#profileImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+#profileInfoBorder {
+    /* border: 40px solid transparent;
+    padding: 15px;
+    border-image: url('https://static.vecteezy.com/system/resources/previews/013/078/397/non_2x/green-ornament-border-design-free-png.png') 30% round; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#backgroundImage {
+    background-image: url('./images/ProfileBackground1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: -1;
+}
+
+@font-face {
+    font-family: 'PrettyWeirdo';
+    src: url('./fonts/Pretty\ Weirdo\ Fill.otf');
+}
+
+@font-face {
+    font-family: 'PrettyWeirdo2';
+    src: url('./fonts/Pretty\ Weirdo\ Outline.otf');
+}
+#firstNameTitle {
+    font-family: 'PrettyWeirdo'
+}
+
+#lastNameTitle {
+    font-family: 'PrettyWeirdo'
+}
+
+#emailTitle {
+    font-family: 'PrettyWeirdo'
+}
+
+#firstName {
+    font-family: 'PrettyWeirdo2'
+}
+
+#lastName {
+    font-family: 'PrettyWeirdo2'
+}
+
+#email {
+    font-family: 'PrettyWeirdo2'
+}

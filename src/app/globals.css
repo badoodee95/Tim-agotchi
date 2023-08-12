@@ -21,3 +21,18 @@
 .underlined {
     text-decoration: underline;
 }
+
+@font-face {
+    font-family: 'PrettyWeirdo';
+    src: url('./fonts/Pretty\ Weirdo\ Fill.otf');
+}
+
+@font-face {
+    font-family: 'PrettyWeirdo2';
+    src: url('./fonts/Pretty\ Weirdo\ Outline.otf');
+}
+
+.underlined {
+    font-family: 'PrettyWeirdo'
+}
+

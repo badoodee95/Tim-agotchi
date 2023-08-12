@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import styles from '@/app/EditModal.module.css';
 
 export default function Example() {
     const [show, setShow] = useState(false);
@@ -11,8 +12,8 @@ export default function Example() {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
+            <Button variant="info" id={styles.buttonText} onClick={handleShow}>
+                EDIT PROFILE
             </Button>
 
             <Modal show={show} onHide={handleClose}>
