@@ -35,5 +35,9 @@
 }
 
 
-
-
+.hover:hover{
+    background-color: #87bdff;
+    transition:ease-in-out 0.5s;
+    cursor: pointer;
+    border-radius: 5px;
+  }
