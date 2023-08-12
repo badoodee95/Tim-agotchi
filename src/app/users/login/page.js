@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import setAuthToken from '@/app/utils/setAuthToken';
 import jwtDecode from 'jwt-decode';
 import Link from 'next/link';
+import styles from '@/app/login.module.css';
 
 
 export default function Login() {
@@ -54,21 +55,41 @@ export default function Login() {
     }, [redirect, router]);
     if (error) {
         return (
-            <div>
-                <div className="card text-white bg-primary py-5 d-md-down-none" style={{ width: "44%" }}>
-                    <div className="card-body text-center">
-                        <div>
-                            <p>User not found</p>
-                            <br />
-                            <h2>Login</h2>
-                            <p>Sign In to your account</p>
-                            <a href="/users/login" type="button" className="btn btn-primary active mt-3">Login</a>
-                            <span>  </span>
-                            <a href="/users/signup" type="button" className="btn btn-secondary active mt-3">Signup</a>
+            <section className="vh-100 bg-image"
+                style={{
+                    backgroundImage: 'url(https://img.freepik.com/free-vector/animal-background-vector-with-cute-pets-illustration_53876-127698.jpg?w=2000&t=st=1691638487~exp=1691639087~hmac=5a0abcbd75513444612e84859d0bbf0222fbfe9af88e338b667d7dd943c8e012)', backgroundSize: "cover", backgroundPosition: "center"
+                }}>
+                <div className="mask d-flex align-items-center h-100 gradient-custom-3">
+                    <div className="container h-100">
+                        <div className="row d-flex justify-content-center align-items-center h-100">
+                            <div className="col-12 col-md-9 col-lg-7 col-xl-6">
+                                <div className="card" style={{ borderRadius: "15px", backgroundColor: 'rgba(210, 91, 234, 0.5)' }}>
+                                    <div className="card-body d-flex flex-wrap justify-content-center">
+                                        <h2 className='text-nowrap' id={styles.title}>TIMAGOTCHI ACCOUNT NOT FOUND</h2>
+                                        <a href="/users/login" type="button" className="btn btn-primary mt-3 mx-5" id={styles.buttons}>BACK TO LOGIN</a>
+                                        <a href="/users/signup" type="button" className="btn btn-secondary mt-3 mx-5" id={styles.buttons}>SIGNUP</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section >
+            // <div>
+            //     <div className="card text-white bg-primary py-5 d-md-down-none" style={{ width: "44%" }}>
+            //         <div className="card-body text-center">
+            //             <div>
+            //                 <p>User not found</p>
+            //                 <br />
+            //                 <h2>Login</h2>
+            //                 <p>Sign In to your account</p>
+            //                 <a href="/users/login" type="button" className="btn btn-primary active mt-3" id={styles}>Login</a>
+            //                 <span>  </span>
+            //                 <a href="/users/signup" type="button" className="btn btn-secondary active mt-3">Signup</a>
+            //             </div>
+            //         </div>
+            //     </div>
+            // </div>
         );
     }
 
