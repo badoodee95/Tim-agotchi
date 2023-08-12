@@ -49,8 +49,9 @@ export default function Timagotchi({ timagotchi }) {
             .catch(error => {
                 console.log('Error updating timagotchi', error);
             });
+            
+        router.refresh();
 
-        
     }
 
     function handlePlay() {
@@ -62,7 +63,7 @@ export default function Timagotchi({ timagotchi }) {
                 console.log('Error updating timagotchi', error);
             });
 
-        // router.reload();
+        router.refresh();
     }
 
     function handleClean() {
@@ -74,7 +75,7 @@ export default function Timagotchi({ timagotchi }) {
                 console.log('Error updating timagotchi', error);
             });
 
-        // router.reload();
+        router.refresh();
     }
 
     function handlePoop() {
@@ -86,7 +87,7 @@ export default function Timagotchi({ timagotchi }) {
                 console.log('Error updating timagotchi', error);
             });
 
-        // router.reload();
+        router.refresh();
     }
 
     return (
@@ -102,18 +103,13 @@ export default function Timagotchi({ timagotchi }) {
                     <div className="col-md-9 text-center">
                         <div className='d-flex justify-content-center'>
                             <img src={timagotchi.image} alt="Timagotchi" className="img-fluid" />
-                            {/* {timagotchi.hasPoooped &&
+                            {timagotchi.hasPoooped &&
                                 <div style={{ marginTop: '76%' }}>
                                     <a onClick={handlePoop} style={{ cursor: 'pointer' }}>
                                         <img src='https://i.imgur.com/Z4pfFD7.png' alt='Timagotchi poop' className='' />
                                     </a>
                                 </div>
-                            } */}
-                            <div style={{ marginTop: '76%' }}>
-                                <a onClick={handlePoop} style={{ cursor: 'pointer' }}>
-                                    <img src='https://i.imgur.com/Z4pfFD7.png' alt='Timagotchi poop' className='' />
-                                </a>
-                            </div>
+                            }
                         </div>
                         <div className='progress-container mt-2' style={{ maxWidth: '90%', margin: 'auto' }}>
                             <div className="progress-label">Hunger:</div>

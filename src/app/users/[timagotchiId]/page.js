@@ -12,12 +12,13 @@ export default function TimagotchiPage() {
 
     useEffect(() => {
         axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/${timagotchiId}`)
-            .then((response) => {
-                setTimagotchi(response.data.timagotchi);
-            })
-            .catch((error) => {
-                console.log('Error fetching timagotchi data', error);
-            });
+        .then((response) => {
+            const foundTimagotchi = response.data.timagotchi;  
+            setTimagotchi(foundTimagotchi);
+        })
+        .catch((error) => {
+            console.log('Error fetching timagotchi data', error);
+        });
     }, [timagotchiId]);
 
     if (!timagotchi.name) return (<div>Loading...</div>);
@@ -27,5 +28,5 @@ export default function TimagotchiPage() {
             <Header />
             <Timagotchi timagotchi={timagotchi} />
         </div>
-    );
+    )
 }
