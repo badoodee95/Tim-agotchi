@@ -15,29 +15,29 @@ export default function Timagotchi({ timagotchi }) {
     let playButton;
 
     if (timagotchi.food.status === 'Hungry') {
-        feedButton = <button className="btn btn-success mx-1" onClick={handleFeed}>Feed</button>
+        feedButton = <button className="btn btn-success mx-1" onClick={handleFeed}>Feed</button>;
     } else {
-        feedButton = <button className="btn btn-secondary mx-1 disabled">Feed</button>
+        feedButton = <button className="btn btn-secondary mx-1 disabled">Feed</button>;
     }
 
     if (timagotchi.mood.status === 'Bored') {
-        playButton = <button className="btn btn-success mx-1" onClick={handlePlay}>Play</button>
+        playButton = <button className="btn btn-success mx-1" onClick={handlePlay}>Play</button>;
     } else {
-        playButton = <button className="btn btn-secondary mx-1 disabled">Play</button>
+        playButton = <button className="btn btn-secondary mx-1 disabled">Play</button>;
     }
 
 
 
     function handleFeed() {
         axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/feed/64d46540530ee66922af7239/${timagotchi._id}`)
-        .then(response => {
-            console.log('response data', response.data.message);
-        })
-        .catch(error => {
-            console.log('Error updating timagotchi', error);
-        });
+            .then(response => {
+                console.log('response data', response.data.message);
+            })
+            .catch(error => {
+                console.log('Error updating timagotchi', error);
+            });
 
-        router.reload();
+        router.refresh();
     }
 
     function handlePlay() {
@@ -49,7 +49,7 @@ export default function Timagotchi({ timagotchi }) {
                 console.log('Error updating timagotchi', error);
             });
 
-        router.reload();
+        router.refresh();
     }
 
     return (
@@ -97,8 +97,8 @@ export default function Timagotchi({ timagotchi }) {
                 </div>
             </div>
             <div className="d-flex justify-content-center mt-3">
-                    {feedButton}
-                    {playButton}
+                {feedButton}
+                {playButton}
 
             </div>
         </div>

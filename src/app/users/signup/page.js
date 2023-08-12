@@ -96,29 +96,22 @@ const Signup = () => {
 							<div className="card" id={styles.signupBox} style={{ borderRadius: "15px", backgroundColor: 'rgba(210, 91, 234, 0.9)' }}>
 								<div className="card-body p-5">
 									<h2 className={`text-center mb-5 text-light ${styles.filledInText} `}>CREATE YOUR TIMAGOTCHI ACCOUNT</h2>
-
 									<form onSubmit={handleSubmit} className='text-center'>
 										<div className="form-outline mb-4 text-light">
-
 											<input type="email" name="email" value={email} onChange={handleEmail} className={`form-control ${styles.filledInText}`} placeholder='EMAIL' required />
 										</div>
 										<div className="form-outline mb-4 text-light">
-
 											<input type="password" name="password" value={password} onChange={handlePassword} className={`form-control ${styles.filledInText}`} placeholder='PASSWORD' required />
 										</div>
 										<div className="form-outline mb-4 text-light">
-
 											<input type="text" name="firstName" value={firstName} onChange={handleFirstName} className={`form-control ${styles.filledInText}`} placeholder='FIRST NAME' required />
 										</div>
 										<div className="form-outline mb-4 text-light">
-
 											<input type="text" name="lastName" value={lastName} onChange={handleLastName} className={`form-control ${styles.filledInText}`} placeholder='LAST NAME' required />
 										</div>
 										<div className="form-outline mb-4 text-light">
-
 											<input type="text" name="location" value={location} onChange={handleLocation} className={`form-control ${styles.filledInText}`} placeholder='LOCATION' />
 										</div>
-
 										<div className="d-flex justify-content-center">
 											<button type="submit" className="btn btn-black btn-block btn-lg gradient-custom-4 text-body" id={styles.buttonText}>REGISTER</button>
 										</div>
