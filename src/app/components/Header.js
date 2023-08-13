@@ -15,45 +15,39 @@ export default function Header() {
 
     }, []);
 
-
-
-
     return (
 
         <nav className="navbar bg-customcolor1 fixed-top border-primary-subtle">
             <div className="container-fluid">
-                <a className="navbar-brand mb-0 h1 text-light" href="/">Tim-agotchi</a>
+                <a className="menu-items navbar-brand mb-0 h1 text-light " href="/">TIM-AGOTCHI</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div className="offcanvas offcanvas-end my-offcanvas" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div className="offcanvas-header">
-                        <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Tim-agotchi</h5>  {/* We can put maybe the name of the tim-agotchi here */}
+                        <h5 className="offcanvas-title underlined" id="offcanvasNavbarLabel">TIM-AGOTCHI</h5>  {/* We can put maybe the name of the tim-agotchi here */}
                         <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
+                    <hr className='horizLine' />
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li className="nav-item">
-                                <Link className="hover nav-link" href={`/users/profile-test/${userId}`}>Profile</Link>
+                            <li className="menu-items nav-item">
+                                <Link className="menu-items nav-link" href={`/users/profile-test/${userId}`}>&nbsp;&nbsp;PROFILE</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="hover nav-link" href={`/users/profile`}>How to use</Link>
+                                <Link className="menu-items nav-link" href={`/users/profile`}>&nbsp;&nbsp;HOW TO USE</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="hover nav-link" href="/users/new-timagotchi">Create new tim-agotchi</Link>
+                                <Link className="menu-items nav-link" href="/users/new-timagotchi">&nbsp;&nbsp;CREATE NEW TIM-AGOTCHI</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="hover nav-link" href="/users/all">View all users</Link>
+                                <Link className="menu-items nav-link" href="/users/all">&nbsp;&nbsp;VISIT OTHER USERS</Link>
                             </li>
-
-                            <>
-                                <hr />
-                                <li className="nav-item">
-                                    <Link className="hover nav-link" href="/users/login" onClick={handleLogout}>Signout</Link>
-                                </li>
-                                <hr />
-                            </>
-
+                            <hr />
+                            <li className="nav-item">
+                                <Link className="menu-items nav-link" href="/users/login" onClick={handleLogout}>&nbsp;&nbsp;SIGNOUT</Link>
+                            </li>
+                            <hr />
                         </ul>
                     </div>
                 </div>

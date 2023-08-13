@@ -12,7 +12,17 @@
     font-family: 'PrettyWeirdo';
 }
 
+#buttons:hover {
+    background-color: rgb(246, 84, 149);
+    color: black;
+}
+
 #title {
     font-family: 'PrettyWeirdo';
     color: white
+}
+
+.loginCard{
+    border-radius: 15px;
+    background-color: rgba(210, 91, 234, 0.9);
 }
