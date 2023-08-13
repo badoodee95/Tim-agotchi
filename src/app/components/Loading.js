@@ -1,7 +1,7 @@
 import React from "react";
 import ReactLoading from "react-loading";
 
-export default function Loading() {
+function LoadingCircle() {
     return (
         <div style={{ justifyContent: 'center', display: 'flex', marginTop: '15%' }}>
             <ReactLoading type="spin" color="#0000FF"
@@ -9,3 +9,14 @@ export default function Loading() {
         </div>
     );
 }
+
+function LoadingLine() {
+    return (
+        <div style={{ justifyContent: 'center', display: 'flex' }}>
+            <ReactLoading type="bubbles" color="#0000FF"
+                width={50} />
+        </div>
+    );
+}
+
+export { LoadingCircle, LoadingLine };
