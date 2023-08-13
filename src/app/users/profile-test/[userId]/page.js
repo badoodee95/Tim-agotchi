@@ -37,7 +37,7 @@ export default function ProfileTest() {
     return (
         <>
             <section className='vh-100 bg-image' id={styles.backgroundImage} style={{ overflowX: 'hidden', overflowY: 'auto' }}>
-                <div className="container">
+                <div className="container" style={{ marginTop: '60px' }}>
                     <div className="main-body" >
                         <div className="row gutters-sm" style={{ justifyContent: 'center' }}>
                             {/* <div className="col-md-2 mb-3"> */}
