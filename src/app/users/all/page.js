@@ -6,7 +6,7 @@ import { useParams } from 'next/navigation';
 import EditModal from '@/app/components/EditModal';
 import styles from '@/app/profile.module.css';
 import axios from 'axios';
-import Loading from '@/app/components/Loading';
+import { LoadingCircle } from '@/app/components/Loading';
 import AllUsers from '@/app/components/AllUsers';
 
 export default function ProfileTest() {
@@ -29,7 +29,7 @@ export default function ProfileTest() {
         fetchUserData();
     }, [userId]);
 
-    if (isLoading) return (<Loading />);
+    if (isLoading) return (<LoadingCircle />);
 
     let rows = [];
     users.forEach((user, index) => {
