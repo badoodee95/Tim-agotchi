@@ -46,9 +46,9 @@ export default function Timagotchi({ timagotchi }) {
     }
 
     if (timagotchi.cleanliness.status === 'Clean') {
-        cleanButton = <button className="btn btn-secondary mx-1 disabled">Clean</button>
+        cleanButton = <button className="btn btn-secondary mx-1 disabled">Clean</button>;
     } else {
-        cleanButton = <button className="btn btn-success mx-1" onClick={handleClean}>Clean</button>
+        cleanButton = <button className="btn btn-success mx-1" onClick={handleClean}>Clean</button>;
     }
 
 
@@ -107,8 +107,8 @@ export default function Timagotchi({ timagotchi }) {
             <div className="card" style={{ maxWidth: '35%', margin: 'auto' }}>
                 <div className="row justify-content-center align-items-center">
                     <div className="col-md-12 text-center">
-                        <h2>{timagotchi.name}</h2>
-                        <p>Age: {timagotchi.age} Days</p>
+                        <h2 className='fontChange'>{timagotchi.name}</h2>
+                        <p className='fontChange'>AGE: {timagotchi.age} DAYS</p>
                     </div>
                 </div>
                 <div className="row justify-content-center align-items-center">
@@ -124,7 +124,7 @@ export default function Timagotchi({ timagotchi }) {
                             }
                         </div>
                         <div className='progress-container mt-2' style={{ maxWidth: '90%', margin: 'auto' }}>
-                            <div className="progress-label">Hunger:</div>
+                            <div className="progress-label fontChange">HUNGER</div>
                             <div className="progress mb-3">
                                 <div
                                     className="progress-bar bg-info"
@@ -133,7 +133,7 @@ export default function Timagotchi({ timagotchi }) {
                                     {roundedFood}%
                                 </div>
                             </div>
-                            <div className="progress-label">Mood:</div>
+                            <div className="progress-label fontChange">MOOD</div>
                             <div className="progress mb-3">
                                 <div
                                     className="progress-bar bg-info"
@@ -142,7 +142,7 @@ export default function Timagotchi({ timagotchi }) {
                                     {roundedMood}%
                                 </div>
                             </div>
-                            <div className="progress-label">Cleanliness:</div>
+                            <div className="progress-label fontChange">CLEANLINESS</div>
                             <div className="progress mb-3">
                                 <div
                                     className="progress-bar bg-info"
@@ -151,7 +151,7 @@ export default function Timagotchi({ timagotchi }) {
                                     {roundedCleanliness}%
                                 </div>
                             </div>
-                            <div className="progress-label">Friendship:</div>
+                            <div className="progress-label fontChange">FRIENDSHIP</div>
                             <div className="progress mb-3">
                                 <div
                                     className="progress-bar bg-info"

@@ -28,6 +28,9 @@
     text-align: center;
 }
 
+.fontChange{
+    font-family: 'PrettyWeirdo';
+}
 .menu-items {
     /* text-decoration: underline; */
     font-family: 'PrettyWeirdo';
