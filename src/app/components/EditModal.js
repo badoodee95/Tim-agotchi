@@ -55,7 +55,7 @@ export default function EditModal({ user, reload }) {
                                 alt="User Avatar" className={styles.avatarImg} />
                         </div>
                         <br />
-                        <Button variant='primary' htmlFor='profilePicture' className={styles.customFileUpload}>CHANGE PROFILE IMAGE</Button>
+                        <label variant='primary' htmlFor='profilePicture' className={styles.customFileUpload}>CHANGE PROFILE IMAGE</label>
                         <input type="file" id="profilePicture" name="profilePicture" className="form-control-file" accept='.png, .jpg, .jpeg' onChange={handleFileOpen} style={{ display: 'none' }} />
                         {mainProfileImage && <ProfileImage profileImage={mainProfileImage} updateUserData={updateUserData} />}
                     </Form.Group>
