@@ -12,7 +12,7 @@ export default function Header() {
         if (typeof window !== 'undefined') {
             setUserId(localStorage.getItem('userId'));
         }
-        
+
     }, []);
 
 
@@ -45,15 +45,15 @@ export default function Header() {
                             <li className="nav-item">
                                 <Link className="hover nav-link" href="/users/all">View all users</Link>
                             </li>
-                            {userId &&
-                                <>
-                                    <hr />
-                                    <li className="nav-item">
-                                        <Link className="hover nav-link" href="/users/login" onClick={handleLogout}>Signout</Link>
-                                    </li>
-                                    <hr />
-                                </>
-                            }
+
+                            <>
+                                <hr />
+                                <li className="nav-item">
+                                    <Link className="hover nav-link" href="/users/login" onClick={handleLogout}>Signout</Link>
+                                </li>
+                                <hr />
+                            </>
+
                         </ul>
                     </div>
                 </div>
