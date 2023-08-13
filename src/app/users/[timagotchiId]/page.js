@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import axios from "axios";
 import Timagotchi from "@/app/components/Timagotchi";
-import Loading from "@/app/components/Loading";
+import { LoadingCircle } from "@/app/components/Loading";
 import Header from "@/app/components/Header";
 import { Island_Moments } from "next/font/google";
 
@@ -25,11 +25,11 @@ export default function TimagotchiPage() {
             });
     }, [timagotchiId]);
 
-    if (isLoading) return (<Loading />);
+    if (isLoading) return (<LoadingCircle />);
 
     return (
         <div>
             <Timagotchi timagotchi={timagotchi} />
         </div>
-    )
+    );
 }
