@@ -15,6 +15,14 @@ export default function Header() {
 
     }, []);
 
+    let userAction;
+
+    if (userId) {
+        userAction = <Link className="menu-items nav-link" href="/users/login" onClick={handleLogout}>&nbsp;&nbsp;SIGNOUT</Link>
+    } else {
+        userAction = <Link className="menu-items nav-link" href="/users/login">&nbsp;&nbsp;SIGN-IN</Link>
+    }
+
     return (
 
         <nav className="navbar bg-customcolor1 fixed-top border-primary-subtle">
@@ -45,7 +53,7 @@ export default function Header() {
                             </li>
                             <hr />
                             <li className="nav-item">
-                                <Link className="menu-items nav-link" href="/users/login" onClick={handleLogout}>&nbsp;&nbsp;SIGNOUT</Link>
+                                {userAction}
                             </li>
                             <hr />
                         </ul>
