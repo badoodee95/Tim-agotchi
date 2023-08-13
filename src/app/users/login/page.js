@@ -62,7 +62,7 @@ export default function Login() {
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
-                            <div className="col-12 col-md-9 col-lg-7 col-xl-6">
+                            <div className="col-12 col-md-9 col-lg-7 col-xl-7">
                                 <div className="card" style={{ borderRadius: "15px", backgroundColor: 'rgba(210, 91, 234, 0.5)' }}>
                                     <div className="card-body d-flex flex-wrap justify-content-center">
                                         <h2 className='text-nowrap' id={styles.title}>TIMAGOTCHI ACCOUNT NOT FOUND</h2>
@@ -75,21 +75,6 @@ export default function Login() {
                     </div>
                 </div>
             </section >
-            // <div>
-            //     <div className="card text-white bg-primary py-5 d-md-down-none" style={{ width: "44%" }}>
-            //         <div className="card-body text-center">
-            //             <div>
-            //                 <p>User not found</p>
-            //                 <br />
-            //                 <h2>Login</h2>
-            //                 <p>Sign In to your account</p>
-            //                 <a href="/users/login" type="button" className="btn btn-primary active mt-3" id={styles}>Login</a>
-            //                 <span>  </span>
-            //                 <a href="/users/signup" type="button" className="btn btn-secondary active mt-3">Signup</a>
-            //             </div>
-            //         </div>
-            //     </div>
-            // </div>
         );
     }
 
@@ -102,26 +87,26 @@ export default function Login() {
                 <div className="container h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-                            <div className="card" style={{ borderRadius: "15px", backgroundColor: 'rgba(210, 91, 234, 0.5)' }}>
+                            <div className={`card ${styles.loginCard}`} >
                                 <div className="card-body p-5">
-                                    <h2 className="text-center mb-5 text-light">Login to Timagotchi</h2>
+                                    <h2 className="text-center mb-5 text-light" id={styles.title}>LOGIN TO TIMAGOTCHI</h2>
 
                                     <form onSubmit={handleSubmit}>
                                         <div className="form-outline mb-4 text-light">
                                             <input type="text" id="form3Example1cg" className="form-control form-control-lg" value={email} onChange={handleEmail} />
-                                            <label className="form-label" htmlFor="form3Example1cg">Email</label>
+                                            <label className="form-label" htmlFor="form3Example1cg" id={styles.title}>EMAIL</label>
                                         </div>
                                         <div className="form-outline mb-4 text-light">
                                             <input type="password" id="form3Example3cg" className="form-control form-control-lg" value={password} onChange={handlePassword} />
-                                            <label className="form-label" htmlFor="form3Example3cg">Password</label>
+                                            <label className="form-label" htmlFor="form3Example3cg" id={styles.title}>PASSWORD</label>
                                         </div>
                                         <div className="d-flex justify-content-center">
                                             <button type="submit"
-                                                className="btn btn- btn-block btn-lg gradient-custom-4 text-body">Login</button>
+                                                className="btn btn-block btn-lg text-body" id={styles.buttons}>LOGIN</button>
                                         </div>
                                     </form>
-                                    <p className="text-center mt-5 mb-0 "> No Account? <Link href="/users/signup"
-                                        className="fw-bold text-body"><u>Sign Up here</u></Link></p>
+                                    <p className="text-center mt-5 mb-0 " id={styles.title}> NO ACCOUNT? <Link href="/users/signup"
+                                        className="fw-bold text-body" id={styles.title}><u>SIGN UP HERE</u></Link></p>
                                 </div>
                             </div>
                         </div>

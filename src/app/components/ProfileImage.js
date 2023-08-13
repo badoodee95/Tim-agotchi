@@ -9,8 +9,6 @@ export default function UploadProfileImage({ profileImage, updateUserData }) {
     const [isLoading, setLoading] = useState(true);
     const [imageUploaded, setImageUploaded] = useState(false);
 
-
-
     useEffect(() => {
         const handle = (image) => {
             const formData = new FormData();

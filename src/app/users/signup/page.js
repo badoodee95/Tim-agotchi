@@ -116,8 +116,8 @@ const Signup = () => {
 											<button type="submit" className="btn btn-black btn-block btn-lg gradient-custom-4 text-body" id={styles.buttonText}>REGISTER</button>
 										</div>
 									</form>
-									<p className="text-center mt-5 mb-0 text-light">Already have an account? <Link href="/users/login"
-										className="fw-bold text-body"><u>Login here</u></Link></p>
+									<p className={`text-center mt-5 mb-0 text-light ${styles.filledInText}`}>ALREADY HAVE AN ACCOUNT? <Link href="/users/login"
+										className={`fw-bold  text-light ${styles.filledInText}`}><u>LOGIN HERE</u></Link></p>
 								</div>
 							</div>
 						</div>
