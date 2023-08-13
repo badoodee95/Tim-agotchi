@@ -1,24 +1,45 @@
 'use client';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Image from 'next/image';
 import styles from './page.module.css';
-import { useEffect, useState } from 'react';
-import setAuthToken from './utils/setAuthToken';
-import ActionButton from './components/ActionButton';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import MyTimagotchi from './components/MyTimagotchi';
-import MyTimagotchiList from './components/MyTimagotchisList';
-import EditModal from './components/EditModal';
-
-// we are going to be fetching data from our API and displaying it on
-// the page
+import { LoadingCircle } from './components/Loading';
+import Link from 'next/link';
 
 export default function Home() {
+  const [user, setUser] = useState({});
+  const [timagotchis, setTimagotchis] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis`)
+      .then((response) => {
+        console.log(response.data);
+        setTimagotchis(response.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  if (isLoading) return <LoadingCircle />;
 
   return (
     <main>
-      <EditModal />
+      <title>tim-agotchi - Home</title>
+      <div id={styles.backgroundImage}></div>
+      <section className='' id={styles.myTimagotchis}>
+        <h1 className='text-center' id={styles.text}>All Timagotchis</h1>
+          <div className='d-flex flex-wrap justify-content-center mt-4'>
+            {timagotchis.map((timagotchi) => (
+              <Link href={`users/${timagotchi._id}`} key={timagotchi._id} className='text-decoration-none'>
+                <MyTimagotchi Timagotchi={timagotchi} key={timagotchi._id} />
+              </ Link>
+            ))}
+          </div>
+      </section>
     </main>
   );
 }

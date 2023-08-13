@@ -38,7 +38,9 @@ export default function ProfileTest() {
 
     return (
         <>
-            <section className='vh-100 bg-image' id={styles.viewAllUsers}>
+            <title>tim-agotchi - View All Users</title>
+            <div id={styles.backgroundImage}></div>
+            <section className='mt-4 mb-4' id={styles.viewAllUsers}>
                 {rows}
             </section >
         </>

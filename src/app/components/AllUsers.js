@@ -13,7 +13,7 @@ export default function AllUsers({ user }) {
                 <div className="row gutters-sm" style={{ justifyContent: 'center', display: 'flex' }}>
                     {/* <div className="col-md-2 mb-3"> */}
                     <div style={{ display: 'contents' }}>
-                        <div className="card mt-4" id={styles.profileBorder} >
+                        <div className="card mt-4pus" id={styles.profileBorder} >
                             <div className="card-body" id='profileImagePlacement' style={{ display: 'flex', flexWrap: 'wrap', alignContent: 'center' }}>
                                 <div className="d-flex flex-column align-items-center text-center">
                                     <Link href={`/users/profile-test/${user._id}`}> <img id={styles.profileImage} src={user.avatar || 'https://i.imgur.com/V3oECuL.png'} /></Link>
