@@ -1,23 +1,27 @@
 'use client';
 import MyTimagotchiList from '@/app/components/MyTimagotchisList';
 import 'bootstrap/dist/css/bootstrap.css';
-import { useState, useEffect, use } from 'react';
-import { useParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { useParams, useRouter } from 'next/navigation';
 import EditModal from '@/app/components/EditModal';
 import styles from '@/app/profile.module.css';
 import axios from 'axios';
-import Loading from '@/app/components/Loading';
+import { LoadingCircle, LoadingLine } from '@/app/components/Loading';
 
 export default function ProfileTest() {
 
     const { userId } = useParams();
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const router = useRouter();
+    const reload = () => {
+        window.location.reload();
+    };
+
     useEffect(() => {
         const fetchUserData = async () => {
             try {
                 const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${userId}`);
-                console.log('profile page response', response.data);
                 setUser(response.data.user);
                 setIsLoading(false);
             } catch (error) {
@@ -28,7 +32,7 @@ export default function ProfileTest() {
         fetchUserData();
     }, [userId]);
 
-    if (isLoading) return (<Loading />);
+    if (isLoading) return (<LoadingCircle />);
 
     return (
         <>
@@ -39,21 +43,20 @@ export default function ProfileTest() {
                             {/* <div className="col-md-2 mb-3"> */}
                             <div className="col-lg-2 mb-2">
                                 <div className="card mt-4" id={styles.profileBorder} >
-                                    <div className="card-body" id='profileImagePlacement'>
+                                    <div className="card-body" id={styles.profileImagePlacement}>
                                         <div className="d-flex flex-column align-items-center text-center">
-                                            <img id={styles.profileImage} src="https://ca.slack-edge.com/T0351JZQ0-U04NEAZUL3T-20e13f3e4c10-512" />
+                                            <img id={styles.profileImage} src={user.avatar || "https://ca.slack-edge.com/T0351JZQ0-U04NEAZUL3T-20e13f3e4c10-512"} />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="row mt-4">
                                     <div className="col-sm-12 d-flex justify-content-center">
                                         <div className="col-sm-12 d-flex justify-content-center me-3">
-                                            <EditModal />
+                                            <EditModal user={user} reload={reload} />
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                             <div className="col-md-8 mt-4">
                                 <div className="mt-2">
                                 </div>
