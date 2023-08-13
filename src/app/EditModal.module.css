@@ -13,33 +13,75 @@
     src: url('./fonts/Pretty\ Weirdo\ Fill.otf');
 }
 
+#modalTitle, #location, 
+#emailTitle, #firstName, 
+#lastName {
+    margin-left: 6%;
+    font-family: 'PrettyWeirdo';
+}
+
 #buttonText {
     font-family: 'PrettyWeirdo';
 }
 
-#modalTitle {
-    font-family: 'PrettyWeirdo';
+#modalTitle {  
     color: blue
 }
 
-#emailTitle {
-    font-family: 'PrettyWeirdo';
+#emailTitle {   
     color: red;
 }
 
 #firstName {
-    font-family: 'PrettyWeirdo';
-    color: pink;
+    color: rgb(255, 156, 173);
 }
 
 #lastName {
-    font-family: 'PrettyWeirdo';
     color: green;
 }
 
+#location{
+    color: purple;
+}
+
 #backgroundImage {
-    background-image: url('https://img.freepik.com/free-vector/sky-background-video-conferencing_23-2148625271.jpg?w=2000&t=st=1691863168~exp=1691863768~hmac=de9c6c64cb107fc6516a63866e131a0789fe74157faf9840844366aea1e1bfa1');
+    /* background-image: url('https://img.freepik.com/free-vector/hand-drawn-international-cat-day-background_23-2149487428.jpg?w=2000&t=st=1691642130~exp=1691642730~hmac=cfdf3c304f91a859462f333b680b81ed3fe3679f91f4a1420e56f48c4ef94ccd'); */
+    background-image: url('./images/ProfileBackground1.png');
+    background-color: rgb(133, 198, 230);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+.customFileUpload {
+    /* border: 1px solid #ccc; */
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 10px;
+    font-family: 'PrettyWeirdo';
+    /* background-color: rgb(112, 148, 255);
+    color: white;
+    border-radius: 5px; */
+}
+
+.avatarImg {
+    width: 140px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30%;
+}
+
+.avatar {
+    text-align: center;
+}
+
+.inputBar{
+    width: 90%;
+}
+
+.inputTextPosition{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
