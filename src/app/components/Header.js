@@ -4,6 +4,8 @@ import Link from 'next/link';
 import handleLogout from '../utils/handleLogout';
 import '@/app/globals.css';
 import { useRouter } from 'next/navigation';
+import Instructions from './Instructions';
+
 export default function Header() {
     const [userId, setUserId] = useState(null);
     const router = useRouter();
@@ -36,6 +38,7 @@ export default function Header() {
                     <Link className="menu-items nav-link" href="/users/login" onClick={handleLogout}>&nbsp;&nbsp;LOGOUT</Link>
                 </li>
                 <hr />
+                <Instructions />
             </ul>;
 
     } else {
@@ -50,6 +53,7 @@ export default function Header() {
                     <Link className="menu-items nav-link" href="/users/login" >&nbsp;&nbsp;LOGIN</Link>
                 </li>
                 <hr />
+                <Instructions />
             </ul>;
     }
 
