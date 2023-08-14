@@ -53,6 +53,9 @@ export default function Timagotchi({ timagotchi }) {
         cleanButton = <button className="btn btn-success mx-1" onClick={handleClean}>Clean</button>;
     }
 
+    const [hungry, setHungry] = useState(feedButton);
+    const [bored, setBored] = useState(playButton);
+    const [clean, setClean] = useState(cleanButton);
     // if (timagotchi.cleanliness.status === 'CLEAN') {
     //     cleanButton = <button className="btn btn-secondary mx-1 disabled">Clean</button>;
     // } else {
@@ -64,6 +67,7 @@ export default function Timagotchi({ timagotchi }) {
             .then(response => {
                 setTimFood(response.data.timagotchi.food.value);
                 setTimFriend(response.data.timagotchi.friendship.value);
+                setHungry(<button className="btn btn-secondary mx-1 disabled">Feed</button>);
                 console.log('response data', response.data.message);
             })
             .catch(error => {
@@ -76,6 +80,7 @@ export default function Timagotchi({ timagotchi }) {
             .then(response => {
                 setTimMood(response.data.timagotchi.mood.value);
                 setTimFriend(response.data.timagotchi.friendship.value);
+                setBored(<button className="btn btn-secondary mx-1 disabled">Play</button>);
                 console.log('response data', response.data.message);
             })
             .catch(error => {
@@ -88,6 +93,7 @@ export default function Timagotchi({ timagotchi }) {
             .then(response => {
                 setTimClean(response.data.timagotchi.cleanliness.value);
                 setTimFriend(response.data.timagotchi.friendship.value);
+                setClean(<button className="btn btn-secondary mx-1 disabled">Clean</button>);
                 console.log('response data', response.data.message);
             })
             .catch(error => {
@@ -175,9 +181,9 @@ export default function Timagotchi({ timagotchi }) {
             </div>
             {timagotchi.user[0] === userId &&
                 <div className="d-flex justify-content-center mt-3">
-                    {feedButton}
-                    {playButton}
-                    {cleanButton}
+                    {hungry}
+                    {bored}
+                    {clean}
                 </div>
             }
         </div>
