@@ -84,3 +84,11 @@
 #email {
     font-family: 'PrettyWeirdo2'
 }
+
+#tim-poop:hover{
+    cursor: pointer;
+}
+
+.timPoop:hover{
+    cursor: pointer;
+}

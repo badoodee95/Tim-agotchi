@@ -26,6 +26,10 @@ export default function Login() {
         setPassword(e.target.value);
     };
 
+    const reload = () => {
+        window.location.reload();
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault(); // at the beginning of a submit function
 
@@ -51,7 +55,9 @@ export default function Login() {
 
     };
     useEffect(() => {
-        if (redirect) { router.push(`/users/profile-test/${localStorage.getItem('userId')}`); }
+        if (redirect) {
+            router.push(`/users/profile-test/${localStorage.getItem('userId')}`);
+        }
     }, [redirect, router]);
     if (error) {
         return (
