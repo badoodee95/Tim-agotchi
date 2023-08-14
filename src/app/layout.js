@@ -14,16 +14,11 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({ children }) {
 
-  const pathname = usePathname();
-  const showHeader = pathname === '/users/signup' || pathname === '/users/login' ? false : true;
-
   return (
     <html lang="en">
       <body className={inter.className}>
-        {showHeader && <Header />}
-        {/* <div style={{ marginTop: '50px' }}> */}
+        <Header />
         {children}
-        {/* </div> */}
       </body>
     </html>
   );
