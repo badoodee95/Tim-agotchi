@@ -7,21 +7,21 @@ Tim-agotchi is a virtual pet game where you can create your own tim-agotchi and 
 
 ### Signup
 
-![alt text](../Tim-agotchi/src/app/images/Signup.png)
+![alt text](/public/Signup.png)
 
 ### Login
 
-![alt text](../Tim-agotchi/src/app/images/Login.png)
+![alt text](/public/Login.png)
 
 ### Single Timagotchi
 
-![alt text](../Tim-agotchi/src/app/images/SingleTimagotchi.png)
+![alt text](/public/SingleTimagotchi.png)
 
 This is the image of a single timagotchi page. You can view all the information of a single timagotchi here like their name and age. You can also interact with them by pressing one of the 3 buttons displayed at the bottom.
 
 ### Navbar
 
-![alt text](../Tim-agotchi/src/app/images/Navbar.png)
+![alt text](/public/Navbar.png)
 
 By clicking on the icon at the top right of the page. You can display the navbar which allows you to view your profile, create a new timagotchi or visit other users' profiles. When you are finished taking care of your timagotchis for the day, you can also logout from here.
 
@@ -29,19 +29,19 @@ This navbar will slightly change when you are not logged in as it will ask you t
 
 ### Profile Page
 
-![alt text](../Tim-agotchi/src/app/images/Profile.png)
+![alt text](/public/Profile.png)
 
 Here we have the profile page. It displays all of the user's timagotchis, information such as the first name, last name, and email. Also, it is possible to choose a custom picture to add to your profile.
 
 ### Create a new Timagotchi
 
-![alt text](../Tim-agotchi/src/app/images/CreateNewTimagotchi.png)
+![alt text](/public/CreateNewTimagotchi.png)
 
 When clicking on "Create new Tim-agotchi" on the navbar, you will be redirected to this webpage in which you will be able to choose a name, gender, and type for your timagotchi.
 
 ### All Users/Visit Other Users
 
-![alt text](../Tim-agotchi/src/app/images/AllUsers.png)
+![alt text](/public/AllUsers.png)
 
 On this page, you can see all of the users with their profile picture, first name, last name, and email. Clicking on their profile picture will redirect you to their profile page.
 
@@ -51,55 +51,64 @@ On this page, you can see all of the users with their profile picture, first nam
 
 Feed your pet by pressing the feed button; doing so will raise the hunger bar by 30%.
 
-![alt text](../Tim-agotchi/src/app/images/FeedButton.png))
-![alt text](../Tim-agotchi/src/app/images/HungerBar.png)
+![alt text](/public/FeedButton.png)
+![alt text](/public/HungerBar.png)
 
 - PLAY
 
 Play with your pet by pressing the play button; doing so will raise the mood bar by 30%.
 
-![alt text](../Tim-agotchi/src/app/images/PlayButton.png)
-![alt text](../Tim-agotchi/src/app/images/MoodBar.png)
+![alt text](/public/PlayButton.png)
+![alt text](/public/MoodBar.png)
 
 - CLEAN
 
 Clean your pet by pressing the clean button; doing so will raise the cleanliness by 30% and lower the friendship bar 1%.
 
+![alt text](/public/CleanButton.png)
+![alt text](/public/CleanlinessAndFriendship.png)
+
+- POOP
+
+Approximately every 3 hours, your timagotchi will need to excrete. Leaving the poop will have a permanent effect on the friendship and cleanliness until the poop is picked up. Picking up the poop is as easy as a simple click.
+
+![alt text](/public/POOP.png)
+
 ## Wireframes
 
 ### Signup
 
-![alt text](../Tim-agotchi/src/app/images/Signup-Wireframe.png)
+![alt text](/public/Signup-Wireframe.png)
 
 ### Login
 
-![alt text](../Tim-agotchi/src/app/images/Login-Wireframe.png)
+![alt text](/public/Login-Wireframe.png)
 
 ### Single Timagotchi
 
-![alt text](../Tim-agotchi/src/app/images/SingleTimagotchi-Wireframe.png)
+![alt text](/public/SingleTimagotchi-Wireframe.png)
 
 ### Navbar
 
-![alt text](../Tim-agotchi/src/app/images/Navbar-Wireframe.png)
+![alt text](/public/Navbar-Wireframe.png)
 
 We initially planned to make a main page that had would then have the instructions on how to play and also have buttons to redirect you to certain parts of our website. Later, we figured we could put all this information into our navbar for much easier access.
 
 ### Profile Page
 
-![alt text](../Tim-agotchi/src/app/images/Profile-Wireframe.png)
+![alt text](/public/Profile-Wireframe.png)
 
 ### Create a new Timagotchi
 
-![alt text](../Tim-agotchi/src/app/images/CreateNewTimagotchi-Wireframe.png)
+![alt text](/public/CreateNewTimagotchi-Wireframe.png)
 
 ### All Users/Visit Other Users
 
-![alt text](../Tim-agotchi/src/app/images/AllUsers-Wireframe.png)
+![alt text](/public/AllUsers-Wireframe.png)
 
 ### Features
 
-![alt text](../Tim-agotchi/src/app/images/Features-Wireframe.png)
+![alt text](/public/Features-Wireframe.png)
 
 ## Installation Instructions
 
