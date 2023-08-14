@@ -39,9 +39,10 @@ export default function EditModal({ user, reload }) {
     };
     return (
         <div>
-            <Button variant="info" id={styles.buttonText} onClick={handleShow}>
-                EDIT PROFILE
-            </Button>
+            {localStorage.getItem('userId') === user._id &&
+                <Button variant="info" id={styles.buttonText} onClick={handleShow}>
+                    EDIT PROFILE
+                </Button>}
 
             <Modal show={show} onHide={handleClose} onExit={reload}>
                 <Modal.Header closeButton id={styles.backgroundImage}>
