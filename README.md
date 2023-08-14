@@ -1,6 +1,6 @@
 # Tim-agotchi - Virtual Pet Game
 
-Welcome totim-agotchi!
+Welcome to Tim-agotchi!
 Tim-agotchi is a virtual pet game where you can create your own tim-agotchi and take care of it. you can feed it, play with it, and even clean up after it! you can also visit other users and see their tim-agotchis.
 
 ## User Interface
