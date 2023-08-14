@@ -5,6 +5,11 @@ const handleLogout = () => {
     localStorage.removeItem('email');
     localStorage.removeItem('userId');
     localStorage.removeItem('expiration');
+
+    if (typeof window !== 'undefined') {
+      const event = new Event('userLoggedOut');
+      window.dispatchEvent(event);
+    }
   }
 };
 

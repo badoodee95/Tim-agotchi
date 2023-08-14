@@ -43,6 +43,8 @@ export default function Login() {
                     localStorage.setItem('userId', response.data.userData.id);
                     setAuthToken(response.data.token);
                     let decoded = jwtDecode(response.data.token);
+                    const event = new Event('userLoggedIn');
+                    window.dispatchEvent(event);
                     setRedirect(true);
                 }
             })
@@ -85,40 +87,43 @@ export default function Login() {
     }
 
     return (
-        <section className="vh-100 bg-image"
-            style={{
-                backgroundImage: 'url(https://img.freepik.com/free-vector/animal-background-vector-with-cute-pets-illustration_53876-127698.jpg?w=2000&t=st=1691638487~exp=1691639087~hmac=5a0abcbd75513444612e84859d0bbf0222fbfe9af88e338b667d7dd943c8e012)', backgroundSize: "cover", backgroundPosition: "center"
-            }}>
-            <div className="mask d-flex align-items-center h-100 gradient-custom-3">
-                <div className="container h-100">
-                    <div className="row d-flex justify-content-center align-items-center h-100">
-                        <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-                            <div className={`${styles.loginCard}`} >
-                                <div className="card-body p-5">
-                                    <h2 className="text-center mb-5 text-light" id={styles.title}>LOGIN TO TIMAGOTCHI</h2>
+        <>
+            <title>tim-agotchi - Login</title>
+            <section className="vh-100 bg-image"
+                style={{
+                    backgroundImage: 'url(https://img.freepik.com/free-vector/animal-background-vector-with-cute-pets-illustration_53876-127698.jpg?w=2000&t=st=1691638487~exp=1691639087~hmac=5a0abcbd75513444612e84859d0bbf0222fbfe9af88e338b667d7dd943c8e012)', backgroundSize: "cover", backgroundPosition: "center"
+                }}>
+                <div className="mask d-flex align-items-center h-100 gradient-custom-3">
+                    <div className="container h-100">
+                        <div className="row d-flex justify-content-center align-items-center h-100">
+                            <div className="col-12 col-md-9 col-lg-7 col-xl-6">
+                                <div className={`${styles.loginCard}`} >
+                                    <div className="card-body p-5">
+                                        <h2 className="text-center mb-5 text-light" id={styles.title}>LOGIN TO TIMAGOTCHI</h2>
 
-                                    <form onSubmit={handleSubmit}>
-                                        <div className="form-outline mb-4 text-light">
-                                            <input type="text" id="form3Example1cg" className="form-control form-control-lg" value={email} onChange={handleEmail} />
-                                            <label className="form-label" htmlFor="form3Example1cg" id={styles.title}>EMAIL</label>
-                                        </div>
-                                        <div className="form-outline mb-4 text-light">
-                                            <input type="password" id="form3Example3cg" className="form-control form-control-lg" value={password} onChange={handlePassword} />
-                                            <label className="form-label" htmlFor="form3Example3cg" id={styles.title}>PASSWORD</label>
-                                        </div>
-                                        <div className="d-flex justify-content-center">
-                                            <button type="submit"
-                                                className="btn btn-block btn-lg text-body" id={styles.buttons}>LOGIN</button>
-                                        </div>
-                                    </form>
-                                    <p className="text-center mt-5 mb-0 " id={styles.title}> NO ACCOUNT? <Link href="/users/signup"
-                                        className="fw-bold text-body" id={styles.title}><u>SIGN UP HERE</u></Link></p>
+                                        <form onSubmit={handleSubmit}>
+                                            <div className="form-outline mb-4 text-light">
+                                                <input type="text" id="form3Example1cg" className="form-control form-control-lg" value={email} onChange={handleEmail} />
+                                                <label className="form-label" htmlFor="form3Example1cg" id={styles.title}>EMAIL</label>
+                                            </div>
+                                            <div className="form-outline mb-4 text-light">
+                                                <input type="password" id="form3Example3cg" className="form-control form-control-lg" value={password} onChange={handlePassword} />
+                                                <label className="form-label" htmlFor="form3Example3cg" id={styles.title}>PASSWORD</label>
+                                            </div>
+                                            <div className="d-flex justify-content-center">
+                                                <button type="submit"
+                                                    className="btn btn-block btn-lg text-body" id={styles.buttons}>LOGIN</button>
+                                            </div>
+                                        </form>
+                                        <p className="text-center mt-5 mb-0 " id={styles.title}> NO ACCOUNT? <Link href="/users/signup"
+                                            className="fw-bold text-body" id={styles.title}><u>SIGN UP HERE</u></Link></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section >
+            </section >
+        </>
     );
 }
