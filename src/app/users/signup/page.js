@@ -46,7 +46,6 @@ const Signup = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const newUser = { email, password, firstName, lastName, location, birthdate };
-		console.log(newUser);
 		axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/signup`, newUser)
 			.then(response => {
 				// console.log('response', response.data);
@@ -58,6 +57,12 @@ const Signup = () => {
 			})
 			.catch(error => {
 				if (error.response.data.message === 'Email already exists') {
+					alert('Email is already in use! Please use a different email!');
+					setEmail('');
+					setPassword('');
+					setFirstName('');
+					setLastName('');
+					setLocation('');
 					console.log('===> Error in Signup', error.response.data.message);
 					// setError(true);
 				}
