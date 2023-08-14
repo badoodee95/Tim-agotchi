@@ -96,7 +96,6 @@ export default function EditModal({ user, reload }) {
                             onChange={handleChange}
                         />
                     </Form.Group>
-                    {/* </Form> */}
                     <Modal.Footer id={styles.backgroundImage}>
                         <Button variant="secondary" onClick={handleClose} id={styles.buttonText}>
                             CLOSE

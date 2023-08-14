@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import handleLogout from '../utils/handleLogout';
 import '@/app/globals.css';
-
+import { useRouter } from 'next/navigation';
 export default function Header() {
     const [userId, setUserId] = useState(null);
+    const router = useRouter();
     useEffect(() => {
         require("bootstrap/dist/js/bootstrap.bundle.min");
 
@@ -18,9 +19,38 @@ export default function Header() {
     let userAction;
 
     if (userId) {
-        userAction = <Link className="menu-items nav-link" href="/users/login" onClick={handleLogout}>&nbsp;&nbsp;SIGNOUT</Link>
+        userAction =
+            <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li className="menu-items nav-item">
+                    <Link className="menu-items nav-link" href={`/users/profile-test/${userId}`}>&nbsp;&nbsp;PROFILE</Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link className="menu-items nav-link" href="/users/new-timagotchi">&nbsp;&nbsp;CREATE NEW TIM-AGOTCHI</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="menu-items nav-link" href="/users/all">&nbsp;&nbsp;VISIT OTHER USERS</Link>
+                </li>
+                <hr />
+                <li className="nav-item">
+                    <Link className="menu-items nav-link" href="/users/login" onClick={handleLogout}>&nbsp;&nbsp;LOGOUT</Link>
+                </li>
+                <hr />
+            </ul>;
+
     } else {
-        userAction = <Link className="menu-items nav-link" href="/users/login">&nbsp;&nbsp;SIGN-IN</Link>
+        userAction =
+            <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+                <li className="nav-item">
+                    <Link className="menu-items nav-link" href="/users/all">&nbsp;&nbsp;VISIT OTHER USERS</Link>
+                </li>
+                <hr />
+                <li className="nav-item">
+                    <Link className="menu-items nav-link" href="/users/login" >&nbsp;&nbsp;LOGIN</Link>
+                </li>
+                <hr />
+            </ul>;
     }
 
     return (
@@ -38,25 +68,7 @@ export default function Header() {
                     </div>
                     <hr className='horizLine' />
                     <div className="offcanvas-body">
-                        <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li className="menu-items nav-item">
-                                <Link className="menu-items nav-link" href={`/users/profile-test/${userId}`}>&nbsp;&nbsp;PROFILE</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="menu-items nav-link" href={`/users/profile`}>&nbsp;&nbsp;HOW TO USE</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="menu-items nav-link" href="/users/new-timagotchi">&nbsp;&nbsp;CREATE NEW TIM-AGOTCHI</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="menu-items nav-link" href="/users/all">&nbsp;&nbsp;VISIT OTHER USERS</Link>
-                            </li>
-                            <hr />
-                            <li className="nav-item">
-                                {userAction}
-                            </li>
-                            <hr />
-                        </ul>
+                        {userAction}
                     </div>
                 </div>
             </div>
