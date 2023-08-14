@@ -19,7 +19,6 @@ export default function Timagotchi({ timagotchi }) {
         userId = localStorage.getItem('userId');
     }
 
-
     const roundedFood = Math.round(timagotchi.food.value);
     const roundedMood = Math.round(timagotchi.mood.value);
     const roundedFriendship = Math.round(timagotchi.friendship.value);
@@ -29,6 +28,7 @@ export default function Timagotchi({ timagotchi }) {
     const [timMood, setTimMood] = useState(roundedMood);
     const [timFriend, setTimFriend] = useState(roundedFriendship);
     const [timClean, setTimClean] = useState(roundedCleanliness);
+    const [timPoop, setTimPoop] = useState(timagotchi.hasPooped);
 
 
     let feedButton;
@@ -53,13 +53,11 @@ export default function Timagotchi({ timagotchi }) {
         cleanButton = <button className="btn btn-success mx-1" onClick={handleClean}>Clean</button>;
     }
 
-    if (timagotchi.cleanliness.status === 'CLEAN') {
-        cleanButton = <button className="btn btn-secondary mx-1 disabled">Clean</button>;
-    } else {
-        cleanButton = <button className="btn btn-success mx-1" onClick={handleClean}>Clean</button>;
-    }
-
-
+    // if (timagotchi.cleanliness.status === 'CLEAN') {
+    //     cleanButton = <button className="btn btn-secondary mx-1 disabled">Clean</button>;
+    // } else {
+    //     cleanButton = <button className="btn btn-success mx-1" onClick={handleClean}>Clean</button>;
+    // }
 
     function handleFeed() {
         axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/feed/${userId}/${timagotchi._id}`)
@@ -71,9 +69,6 @@ export default function Timagotchi({ timagotchi }) {
             .catch(error => {
                 console.log('Error updating timagotchi', error);
             });
-
-        router.refresh();
-
     }
 
     function handlePlay() {
@@ -86,8 +81,6 @@ export default function Timagotchi({ timagotchi }) {
             .catch(error => {
                 console.log('Error updating timagotchi', error);
             });
-
-        router.refresh();
     }
 
     function handleClean() {
@@ -100,23 +93,18 @@ export default function Timagotchi({ timagotchi }) {
             .catch(error => {
                 console.log('Error updating timagotchi', error);
             });
-
-        router.refresh();
     }
 
     function handlePoop() {
         axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/pooperscooper/${userId}/${timagotchi._id}`)
             .then(response => {
+                setTimPoop(response.data.timagotchi.hasPooped);
                 console.log('response data', response.data.message);
             })
             .catch(error => {
                 console.log('Error updating timagotchi', error);
             });
-
-        router.refresh();
     }
-
-
 
     return (
         <div style={{ marginTop: '8%' }}>
@@ -131,13 +119,13 @@ export default function Timagotchi({ timagotchi }) {
                     <div className="col-md-9 text-center">
                         <div className='d-flex justify-content-center'>
                             <img src={timagotchi.image} alt="Timagotchi" className="img-fluid" />
-                            {timagotchi.hasPooped && timagotchi.user[0] === userId ?
+                            {timPoop && timagotchi.user[0] === userId ?
                                 <div style={{ marginTop: '76%' }}>
-                                    <a onClick={handlePoop} style={{ cursor: 'pointer' }}>
+                                    <a onClick={handlePoop} className={styles.timPoop}>
                                         <img src='https://i.imgur.com/Z4pfFD7.png' alt='Timagotchi poop' className='' />
                                     </a>
                                 </div>
-                                : timagotchi.hasPooped && timagotchi.user[0] !== userId ?
+                                : timPoop && timagotchi.user[0] !== userId ?
                                     <div style={{ marginTop: '76%' }}>
                                         <img src='https://i.imgur.com/Z4pfFD7.png' alt='Timagotchi poop' className='' />
                                     </div>

@@ -16,3 +16,7 @@
     font-family: 'PrettyWeirdo';
     color: palevioletred;
 }
+
+#pointer:hover {
+    cursor: pointer;
+}

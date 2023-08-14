@@ -60,11 +60,8 @@
     margin: 0;
 }
 
-
-
 .my-offcanvas {
     background-image: url('./images/doggys.png'), linear-gradient(to bottom, rgba(255, 0, 0, 0), rgba(154,231,246,255)) ;
     background-position: bottom center;
     background-repeat: no-repeat;
-    /* ... rest of your offcanvas styles */
 }
