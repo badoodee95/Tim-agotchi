@@ -18,7 +18,7 @@ export default function MyTimagotchi({ Timagotchi }) {
                     </div>
                 </div>
                 <div className="mt-3 text-center" id={styles.text}>
-                    <h5>{Timagotchi.name}</h5>
+                    <h5>{Timagotchi.name.toUpperCase()}</h5>
                     <div className="d-flex mt-5 px-5">
                         <div className="stats mx-2">
                             <h6 className="mb-0 underlined" >FRIENDSHIP</h6>
