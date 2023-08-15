@@ -82,8 +82,8 @@ export default function NewTimagotchi() {
                                             <div className="form-outline mb-4 text-light text-center">
                                                 <select className={`form-control form-control-lg ${styles.filledInText}`} onChange={handleType}>
                                                     <option value="type" defaultValue>CHOOSE A TYPE</option>
-                                                    <option value="Dog">DOG</option>
-                                                    <option value="Cat">CAT</option>
+                                                    <option value="DOG">DOG</option>
+                                                    <option value="CAT">CAT</option>
                                                 </select>
                                             </div>
                                             <div className="d-flex justify-content-center">
