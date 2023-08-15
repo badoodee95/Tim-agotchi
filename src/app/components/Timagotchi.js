@@ -14,7 +14,7 @@ export default function Timagotchi({ timagotchi }) {
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            setUserId(localStorage.getItem('userId'));
+            setUserId(localStorage.getItem('userId'))
         }
     }, []);
 
