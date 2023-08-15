@@ -45,11 +45,10 @@ export default function ProfileTest() {
     return (
         <>
             <title>tim-agotchi - Profile</title>
-            <section className='vh-100 bg-image' id={styles.backgroundImage} style={{ overflowX: 'hidden', overflowY: 'auto' }}>
+            <section className='vh-100 bg-image' id={styles.backgroundProfileImage} style={{ overflowX: 'hidden', overflowY: 'auto' }}>
                 <div className="container" style={{ marginTop: '60px' }}>
                     <div className="main-body" >
                         <div className="row gutters-sm" style={{ justifyContent: 'center' }}>
-                            {/* <div className="col-md-2 mb-3"> */}
                             <div className="col-lg-2 mb-2">
                                 <div className="card mt-4" id={styles.profileBorder} >
                                     <div className="card-body" id={styles.profileImagePlacement}>

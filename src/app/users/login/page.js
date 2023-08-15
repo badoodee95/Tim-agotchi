@@ -32,7 +32,6 @@ export default function Login() {
 
         axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/login`, { email, password })
             .then(response => {
-                console.log('response', response.data);
                 if (typeof window !== 'undefined') {
                     localStorage.setItem('jwtToken', response.data.token);
                     localStorage.setItem('email', response.data.userData.email);

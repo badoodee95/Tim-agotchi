@@ -1,19 +1,15 @@
 'use client';
-
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
 import styles from '../profile.module.css';
-import Image from 'next/image';
-
 
 export default function Timagotchi({ timagotchi }) {
     const [userId, setUserId] = useState('');
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            setUserId(localStorage.getItem('userId'))
+            setUserId(localStorage.getItem('userId'));
         }
     }, []);
 
@@ -60,7 +56,6 @@ export default function Timagotchi({ timagotchi }) {
                 setTimFood(response.data.timagotchi.food.value);
                 setTimFriend(response.data.timagotchi.friendship.value);
                 setHungry(<button className="btn btn-secondary mx-1 disabled">Feed</button>);
-                console.log('response data', response.data.message);
             })
             .catch(error => {
                 console.log('Error updating timagotchi', error);
@@ -73,7 +68,6 @@ export default function Timagotchi({ timagotchi }) {
                 setTimMood(response.data.timagotchi.mood.value);
                 setTimFriend(response.data.timagotchi.friendship.value);
                 setBored(<button className="btn btn-secondary mx-1 disabled">Play</button>);
-                console.log('response data', response.data.message);
             })
             .catch(error => {
                 console.log('Error updating timagotchi', error);
@@ -88,7 +82,6 @@ export default function Timagotchi({ timagotchi }) {
                 if (response.data.timagotchi.cleanliness.value === 100) {
                     setClean(<button className="btn btn-secondary mx-1 disabled">Clean</button>);
                 }
-                console.log('response data', response.data.message);
             })
             .catch(error => {
                 console.log('Error updating timagotchi', error);
@@ -99,7 +92,6 @@ export default function Timagotchi({ timagotchi }) {
         axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/pooperscooper/${timagotchi.user[0]}/${timagotchi._id}`)
             .then(response => {
                 setTimPoop(response.data.timagotchi.hasPooped);
-                console.log('response data', response.data.message);
             })
             .catch(error => {
                 console.log('Error updating timagotchi', error);
@@ -109,15 +101,15 @@ export default function Timagotchi({ timagotchi }) {
     let ageElement;
 
     if (timagotchi.age = 1) {
-        ageElement = <p className='fontChange'>AGE: {timagotchi.age} DAY</p>
+        ageElement = <p className='fontChange'>AGE: {timagotchi.age} DAY</p>;
     } else {
-        ageElement = <p className='fontChange'>AGE: {timagotchi.age} DAYS</p>
+        ageElement = <p className='fontChange'>AGE: {timagotchi.age} DAYS</p>;
     }
 
     return (
         <>
             <title>tim-agotchi</title>
-            <div id={styles.backgroundImage}>
+            <div id={styles.backgroundTimagotchiImage}>
                 <div className="card" style={{ maxWidth: '35%', marginLeft: '33%', marginTop: '5%', paddingLeft: '1%', paddingTop: '1%' }}>
                     <div className="row justify-content-center align-items-center">
                         <div className="col-md-12 text-center">
