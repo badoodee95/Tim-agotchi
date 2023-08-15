@@ -10,13 +10,12 @@ import Image from 'next/image';
 
 export default function Timagotchi({ timagotchi }) {
     const [userId, setUserId] = useState('');
-    const router = useRouter();
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
             setUserId(localStorage.getItem('userId'))
         }
-    }, []);
+    }, [userId]);
 
     const roundedFood = Math.round(timagotchi.food.value);
     const roundedMood = Math.round(timagotchi.mood.value);
@@ -107,6 +106,14 @@ export default function Timagotchi({ timagotchi }) {
             });
     }
 
+    let ageElement;
+
+    if (timagotchi.age = 1) {
+        ageElement = <p className='fontChange'>AGE: {timagotchi.age} DAY</p>
+    } else {
+        ageElement = <p className='fontChange'>AGE: {timagotchi.age} DAYS</p>
+    }
+
     return (
         <>
             <title>tim-agotchi</title>
@@ -114,8 +121,8 @@ export default function Timagotchi({ timagotchi }) {
                 <div className="card" style={{ maxWidth: '35%', marginLeft: '33%', marginTop: '5%', paddingLeft: '1%', paddingTop: '1%' }}>
                     <div className="row justify-content-center align-items-center">
                         <div className="col-md-12 text-center">
-                            <h2 className='fontChange'>{timagotchi.name}</h2>
-                            <p className='fontChange'>AGE: {timagotchi.age} DAYS</p>
+                            <h2 className='fontChange'>{timagotchi.name.toUpperCase()}</h2>
+                            {ageElement}
                         </div>
                     </div>
                     <div className="row justify-content-center align-items-center">
