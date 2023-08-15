@@ -113,79 +113,82 @@ export default function Timagotchi({ timagotchi }) {
     }
 
     return (
-        <div style={{ marginTop: '8%' }}>
-            <div className="card" style={{ maxWidth: '35%', margin: 'auto' }}>
-                <div className="row justify-content-center align-items-center">
-                    <div className="col-md-12 text-center">
-                        <h2 className='fontChange'>{timagotchi.name}</h2>
-                        <p className='fontChange'>AGE: {timagotchi.age} DAYS</p>
+        <>
+            <title>tim-agotchi</title>
+            <div style={{ marginTop: '8%' }}>
+                <div className="card" style={{ maxWidth: '35%', margin: 'auto' }}>
+                    <div className="row justify-content-center align-items-center">
+                        <div className="col-md-12 text-center">
+                            <h2 className='fontChange'>{timagotchi.name}</h2>
+                            <p className='fontChange'>AGE: {timagotchi.age} DAYS</p>
+                        </div>
                     </div>
-                </div>
-                <div className="row justify-content-center align-items-center">
-                    <div className="col-md-9 text-center">
-                        <div className='d-flex justify-content-center'>
-                            <img src={timagotchi.image} alt="Timagotchi" className="img-fluid" />
-                            {timPoop && timagotchi.user[0] === userId ?
-                                <div style={{ marginTop: '76%' }}>
-                                    <a onClick={handlePoop} className={styles.timPoop}>
-                                        <img src='https://i.imgur.com/Z4pfFD7.png' alt='Timagotchi poop' className='' />
-                                    </a>
-                                </div>
-                                : timPoop && timagotchi.user[0] !== userId ?
+                    <div className="row justify-content-center align-items-center">
+                        <div className="col-md-9 text-center">
+                            <div className='d-flex justify-content-center'>
+                                <img src={timagotchi.image} alt="Timagotchi" className="img-fluid" />
+                                {timPoop && timagotchi.user[0] === userId ?
                                     <div style={{ marginTop: '76%' }}>
-                                        <img src='https://i.imgur.com/Z4pfFD7.png' alt='Timagotchi poop' className='' />
+                                        <a onClick={handlePoop} className={styles.timPoop}>
+                                            <img src='https://i.imgur.com/Z4pfFD7.png' alt='Timagotchi poop' className='' />
+                                        </a>
                                     </div>
-                                    : null
-                            }
-                        </div>
-                        <div className='progress-container mt-2' style={{ maxWidth: '90%', margin: 'auto' }}>
-                            <div className="progress-label fontChange">HUNGER</div>
-                            <div className="progress mb-3">
-                                <div
-                                    className="progress-bar bg-info"
-                                    style={{ width: `${timFood}%` }}
-                                >
-                                    {Math.round(timFood)}%
-                                </div>
+                                    : timPoop && timagotchi.user[0] !== userId ?
+                                        <div style={{ marginTop: '76%' }}>
+                                            <img src='https://i.imgur.com/Z4pfFD7.png' alt='Timagotchi poop' className='' />
+                                        </div>
+                                        : null
+                                }
                             </div>
-                            <div className="progress-label fontChange">MOOD</div>
-                            <div className="progress mb-3">
-                                <div
-                                    className="progress-bar bg-info"
-                                    style={{ width: `${timMood}%` }}
-                                >
-                                    {Math.round(timMood)}%
+                            <div className='progress-container mt-2' style={{ maxWidth: '90%', margin: 'auto' }}>
+                                <div className="progress-label fontChange">HUNGER</div>
+                                <div className="progress mb-3">
+                                    <div
+                                        className="progress-bar bg-info"
+                                        style={{ width: `${timFood}%` }}
+                                    >
+                                        {Math.round(timFood)}%
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="progress-label fontChange">CLEANLINESS</div>
-                            <div className="progress mb-3">
-                                <div
-                                    className="progress-bar bg-info"
-                                    style={{ width: `${timClean}%` }}
-                                >
-                                    {Math.round(timClean)}%
+                                <div className="progress-label fontChange">MOOD</div>
+                                <div className="progress mb-3">
+                                    <div
+                                        className="progress-bar bg-info"
+                                        style={{ width: `${timMood}%` }}
+                                    >
+                                        {Math.round(timMood)}%
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="progress-label fontChange">FRIENDSHIP</div>
-                            <div className="progress mb-3">
-                                <div
-                                    className="progress-bar bg-info"
-                                    style={{ width: `${timFriend}%` }}
-                                >
-                                    {Math.round(timFriend)}%
+                                <div className="progress-label fontChange">CLEANLINESS</div>
+                                <div className="progress mb-3">
+                                    <div
+                                        className="progress-bar bg-info"
+                                        style={{ width: `${timClean}%` }}
+                                    >
+                                        {Math.round(timClean)}%
+                                    </div>
+                                </div>
+                                <div className="progress-label fontChange">FRIENDSHIP</div>
+                                <div className="progress mb-3">
+                                    <div
+                                        className="progress-bar bg-info"
+                                        style={{ width: `${timFriend}%` }}
+                                    >
+                                        {Math.round(timFriend)}%
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {timagotchi.user[0] === userId &&
+                    <div className="d-flex justify-content-center mt-3">
+                        {hungry}
+                        {bored}
+                        {clean}
+                    </div>
+                }
             </div>
-            {timagotchi.user[0] === userId &&
-                <div className="d-flex justify-content-center mt-3">
-                    {hungry}
-                    {bored}
-                    {clean}
-                </div>
-            }
-        </div>
+        </>
     );
 };

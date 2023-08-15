@@ -8,7 +8,6 @@ import jwtDecode from 'jwt-decode';
 import Link from 'next/link';
 import styles from '@/app/login.module.css';
 
-
 export default function Login() {
     const router = useRouter();
     const [redirect, setRedirect] = useState(false);
@@ -56,33 +55,38 @@ export default function Login() {
             });
 
     };
+
     useEffect(() => {
         if (redirect) {
             router.push(`/users/profile-test/${localStorage.getItem('userId')}`);
         }
     }, [redirect, router]);
+
     if (error) {
         return (
-            <section className="vh-100 bg-image"
-                style={{
-                    backgroundImage: 'url(https://i.imgur.com/hZTsqdL.jpg)', backgroundSize: "cover", backgroundPosition: "center"
-                }}>
-                <div className="mask d-flex align-items-center h-100 gradient-custom-3">
-                    <div className="container h-100">
-                        <div className="row d-flex justify-content-center align-items-center h-100">
-                            <div className="col-12 col-md-9 col-lg-7 col-xl-7">
-                                <div className="card" style={{ borderRadius: "15px", backgroundColor: 'rgba(210, 91, 234, 0.5)' }}>
-                                    <div className="card-body d-flex flex-wrap justify-content-center">
-                                        <h2 className='text-nowrap' id={styles.title}>TIMAGOTCHI ACCOUNT NOT FOUND</h2>
-                                        <a href="/users/login" type="button" className="btn btn-primary mt-3 mx-5" id={styles.buttons}>BACK TO LOGIN</a>
-                                        <a href="/users/signup" type="button" className="btn btn-secondary mt-3 mx-5" id={styles.buttons}>SIGNUP</a>
+            <>
+                <title>tim-agotchi - Error</title>
+                <section className="vh-100 bg-image"
+                    style={{
+                        backgroundImage: 'url(https://i.imgur.com/hZTsqdL.jpg)', backgroundSize: "cover", backgroundPosition: "center"
+                    }}>
+                    <div className="mask d-flex align-items-center h-100 gradient-custom-3">
+                        <div className="container h-100">
+                            <div className="row d-flex justify-content-center align-items-center h-100">
+                                <div className="col-12 col-md-9 col-lg-7 col-xl-7">
+                                    <div className="card" style={{ borderRadius: "15px", backgroundColor: 'rgba(210, 91, 234, 0.5)' }}>
+                                        <div className="card-body d-flex flex-wrap justify-content-center">
+                                            <h2 className='text-nowrap' id={styles.title}>TIMAGOTCHI ACCOUNT NOT FOUND</h2>
+                                            <a href="/users/login" type="button" className="btn btn-primary mt-3 mx-5" id={styles.buttons}>BACK TO LOGIN</a>
+                                            <a href="/users/signup" type="button" className="btn btn-secondary mt-3 mx-5" id={styles.buttons}>SIGNUP</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section >
+                </section >
+            </>
         );
     }
 
