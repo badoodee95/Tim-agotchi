@@ -1,6 +1,6 @@
 "use client";
 import 'bootstrap/dist/css/bootstrap.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -12,9 +12,6 @@ const Signup = () => {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 	const [location, setLocation] = useState('');
-	const [birthdate, setBirthdate] = useState('');
-
-	const [error, setError] = useState(false);
 
 	const [redirect, setRedirect] = useState(false);
 	const router = useRouter();
@@ -39,16 +36,11 @@ const Signup = () => {
 		setLocation(e.target.value);
 	};
 
-	const handleBirthdate = (e) => {
-		setBirthdate(e.target.value);
-	};
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const newUser = { email, password, firstName, lastName, location, birthdate };
+		const newUser = { email, password, firstName, lastName, location };
 		axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/signup`, newUser)
 			.then(response => {
-				// console.log('response', response.data);
 				if (typeof window !== 'undefined') {
 					localStorage.setItem('email', response.data.user.email);
 					localStorage.setItem('userId', response.data.user._id);
@@ -64,32 +56,11 @@ const Signup = () => {
 					setLastName('');
 					setLocation('');
 					console.log('===> Error in Signup', error.response.data.message);
-					// setError(true);
 				}
 			});
 	};
 
-
 	if (redirect) { router.push('/users/login'); }
-	if (error) {
-		return (
-			<div>
-				<div className="card text-white bg-primary py-5 d-md-down-none" style={{ width: "44%" }}>
-					<div className="card-body text-center">
-						<div>
-							<p>Email already exists</p>
-							<br />
-							<h2>Login</h2>
-							<p>Sign In to your account</p>
-							<Link href="/users/login" type="button" className="btn btn-primary active mt-3">Login</Link>
-							<span>  </span>
-							<Link href="/users/signup" type="button" className="btn btn-secondary active mt-3">Signup</Link>
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	}
 
 	return (
 		<>

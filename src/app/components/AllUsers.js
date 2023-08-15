@@ -1,17 +1,12 @@
 'use client';
-
 import styles from '@/app/profile.module.css';
 import Link from 'next/link';
 
 export default function AllUsers({ user }) {
-
-
     return (
-
         <div className="container">
             <div className="main-body" >
                 <div className="row gutters-sm" style={{ justifyContent: 'center', display: 'flex' }}>
-                    {/* <div className="col-md-2 mb-3"> */}
                     <div style={{ display: 'contents' }}>
                         <div className="card mt-4pus" id={styles.profileBorder} >
                             <div className="card-body" id='profileImagePlacement' style={{ display: 'flex', flexWrap: 'wrap', alignContent: 'center' }}>
@@ -20,7 +15,6 @@ export default function AllUsers({ user }) {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div >
                         <div className="mt-2">
@@ -30,11 +24,11 @@ export default function AllUsers({ user }) {
                                 <div className="row gx-3 mb-3">
                                     <div className="col-md-6">
                                         <h6 className="mb-0" id={styles.firstNameTitle}>FIRST NAME</h6>
-                                        <div className="mb-1 pt-2 text-secondary" id={styles.firstName}>{user.firstName}</div>
+                                        <div className="mb-1 pt-2 text-secondary" id={styles.firstName}>{user.firstName.toUpperCase()}</div>
                                     </div>
                                     <div className="col-md-6">
                                         <h6 className="mb-0" id={styles.lastNameTitle}>LAST NAME</h6>
-                                        <div className="mb-1 pt-2 text-secondary" id={styles.lastName}>{user.lastName}</div>
+                                        <div className="mb-1 pt-2 text-secondary" id={styles.lastName}>{user.lastName.toUpperCase()}</div>
                                     </div>
                                 </div>
                                 <hr />
@@ -51,9 +45,7 @@ export default function AllUsers({ user }) {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
     );
 }

@@ -37,15 +37,12 @@ export default function NewTimagotchi() {
         const newTim = { name, gender, type, user: localStorage.getItem('userId') };
         axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/new`, newTim)
             .then(response => {
-                console.log('response', response.data);
                 setTim(response.data.timagotchi);
-
                 setRedirect(true);
             })
             .catch(error => {
                 if (error.response.data.message === 'Email already exists') {
                     console.log('===> Error in Signup', error.response.data.message);
-                    // setError(true);
                 }
             });
     };

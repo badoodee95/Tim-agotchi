@@ -1,9 +1,6 @@
 'use client';
-import MyTimagotchiList from '@/app/components/MyTimagotchisList';
 import 'bootstrap/dist/css/bootstrap.css';
-import { useState, useEffect, use } from 'react';
-import { useParams } from 'next/navigation';
-import EditModal from '@/app/components/EditModal';
+import { useState, useEffect } from 'react';
 import styles from '@/app/profile.module.css';
 import axios from 'axios';
 import { LoadingCircle } from '@/app/components/Loading';
