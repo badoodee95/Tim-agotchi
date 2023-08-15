@@ -28,7 +28,6 @@ export default function UploadProfileImage({ profileImage, updateUserData }) {
                             updateUserData(response.data.user);
                             setLoading(false);
                             setImageUploaded(true);
-
                         })
                         .catch((error) => console.log('Error', error));
                 })

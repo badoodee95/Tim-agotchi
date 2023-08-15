@@ -10,7 +10,6 @@ export default function NewTimagotchi() {
     const [gender, setGender] = useState('');
     const [type, setType] = useState('');
     const [tim, setTim] = useState('');
-    const [error, setError] = useState(false);
 
     const [redirect, setRedirect] = useState(false);
     const router = useRouter();
@@ -45,10 +44,7 @@ export default function NewTimagotchi() {
             });
     };
 
-
-
     if (redirect) { router.push(`/users/${tim._id}`); }
-
 
     return (
         <>
