@@ -8,7 +8,6 @@ import { LoadingCircle } from './components/Loading';
 import Link from 'next/link';
 
 export default function Home() {
-  const [user, setUser] = useState({});
   const [timagotchis, setTimagotchis] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 

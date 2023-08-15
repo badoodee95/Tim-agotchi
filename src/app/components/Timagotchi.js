@@ -1,23 +1,22 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import styles from '../profile.module.css';
 import Image from 'next/image';
-import Router from 'next/router';
-import { useState } from 'react';
+
 
 export default function Timagotchi({ timagotchi }) {
-
+    const [userId, setUserId] = useState('');
     const router = useRouter();
 
-    let userId;
-
-    if (typeof window !== 'undefined') {
-        userId = localStorage.getItem('userId');
-    }
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setUserId(localStorage.getItem('userId'))
+        }
+    }, []);
 
     const roundedFood = Math.round(timagotchi.food.value);
     const roundedMood = Math.round(timagotchi.mood.value);

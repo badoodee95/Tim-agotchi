@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 
 export default function NewTimagotchi() {
-
+    const [userId, setUserId] = useState('');
     const [name, setName] = useState('');
     const [gender, setGender] = useState('');
     const [type, setType] = useState('');
@@ -13,6 +13,12 @@ export default function NewTimagotchi() {
 
     const [redirect, setRedirect] = useState(false);
     const router = useRouter();
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setUserId(localStorage.getItem('userId'));
+        }
+    }, []);
 
     const handleName = (e) => {
         setName(e.target.value);
@@ -43,6 +49,10 @@ export default function NewTimagotchi() {
                 }
             });
     };
+
+    if (userId === null) {
+        router.push('/users/login');
+    }
 
     if (redirect) { router.push(`/users/${tim._id}`); }
 

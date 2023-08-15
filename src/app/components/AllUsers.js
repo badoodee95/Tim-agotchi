@@ -16,7 +16,7 @@ export default function AllUsers({ user }) {
                         <div className="card mt-4pus" id={styles.profileBorder} >
                             <div className="card-body" id='profileImagePlacement' style={{ display: 'flex', flexWrap: 'wrap', alignContent: 'center' }}>
                                 <div className="d-flex flex-column align-items-center text-center">
-                                    <Link href={`/users/profile-test/${user._id}`}> <img id={styles.profileImage} src={user.avatar || 'https://freesvg.org/img/abstract-user-flat-4.png'} /></Link>
+                                    <Link href={`/users/profile/${user._id}`}> <img id={styles.profileImage} src={user.avatar || 'https://freesvg.org/img/abstract-user-flat-4.png'} /></Link>
                                 </div>
                             </div>
                         </div>

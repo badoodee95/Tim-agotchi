@@ -9,7 +9,7 @@ import axios from 'axios';
 import { LoadingCircle, LoadingLine } from '@/app/components/Loading';
 
 export default function ProfileTest() {
-
+    const [authUserId, setAuthUserId] = useState('');
     const { userId } = useParams();
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -30,7 +30,15 @@ export default function ProfileTest() {
         };
 
         fetchUserData();
+
+        if (typeof window !== 'undefined') {
+            setAuthUserId(localStorage.getItem('userId'));
+        }
     }, [userId]);
+
+    if (authUserId === null) {
+        router.push('/users/login');
+    }
 
     if (isLoading) return (<LoadingCircle />);
 
