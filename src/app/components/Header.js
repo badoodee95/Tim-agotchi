@@ -10,14 +10,39 @@ export default function Header() {
     const [userId, setUserId] = useState(null);
     const router = useRouter();
     useEffect(() => {
-        require("bootstrap/dist/js/bootstrap.bundle.min");
+        require('bootstrap/dist/js/bootstrap.bundle.min');
+
+        // Function to update userId state based on localStorage
+        const updateUserIdFromLocalStorage = () => {
+            if (typeof window !== 'undefined') {
+                setUserId(localStorage.getItem('userId'));
+            }
+        };
+
+        // Update userId state on initial load
+        updateUserIdFromLocalStorage();
+
+        // Listen for custom events to update userId state
+        const handleUserLoggedIn = () => {
+            updateUserIdFromLocalStorage();
+        };
+
+        const handleUserLoggedOut = () => {
+            updateUserIdFromLocalStorage();
+        };
 
         if (typeof window !== 'undefined') {
-            setUserId(localStorage.getItem('userId'));
+            window.addEventListener('userLoggedIn', handleUserLoggedIn);
+            window.addEventListener('userLoggedOut', handleUserLoggedOut);
         }
 
+        return () => {
+            if (typeof window !== 'undefined') {
+                window.removeEventListener('userLoggedIn', handleUserLoggedIn);
+                window.removeEventListener('userLoggedOut', handleUserLoggedOut);
+            }
+        };
     }, []);
-
     let userAction;
 
     if (userId) {
@@ -35,7 +60,7 @@ export default function Header() {
                 </li>
                 <hr />
                 <li className="nav-item">
-                    <Link className="menu-items nav-link" href="/users/login" onClick={handleLogout}>&nbsp;&nbsp;LOGOUT</Link>
+                    <Link className="menu-items nav-link" href="/users/login" onClick={handleLogout} >&nbsp;&nbsp;LOGOUT</Link>
                 </li>
                 <hr />
                 <Instructions />

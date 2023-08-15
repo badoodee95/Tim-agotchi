@@ -17,25 +17,26 @@ export default function MyTimagotchi({ Timagotchi }) {
                         <Link href={`/users/${Timagotchi._id}`} ><img src={Timagotchi.image} className="rounded-circle" width="150" height="150" /></Link>
                     </div>
                 </div>
-                <div className="mt-5 text-center" id={styles.text}>
+                <div className="mt-3 text-center" id={styles.text}>
                     <h5>{Timagotchi.name}</h5>
                     <div className="d-flex mt-5 px-5">
                         <div className="stats mx-2">
-                            <h6 className="mb-0">FRIENDSHIP</h6>
+                            <h6 className="mb-0 underlined" >FRIENDSHIP</h6>
                             <span>{Timagotchi.friendship.status.toUpperCase()}</span>
                         </div>
                         <div className="stats mx-2">
-                            <h6 className="mb-0">FOOD</h6>
+                            <h6 className="mb-0 underlined">FOOD</h6>
                             <span>{Timagotchi.food.status.toUpperCase()}</span>
                         </div>
                         <div className="stats mx-2">
-                            <h6 className="mb-0">MOOD</h6>
+                            <h6 className="mb-0 underlined">MOOD</h6>
                             <span>{Timagotchi.mood.status.toUpperCase()}</span>
                         </div>
                     </div>
+                    <br />
                 </div>
             </div>
         </div >
 
     );
-}; ``;
+};
