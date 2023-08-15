@@ -26,9 +26,9 @@ export default function TimagotchiPage() {
 
     return (
 
-        <div style='overflow-y: scroll'>
+        <div style={{ overflowY: 'scroll' }}>
             <Timagotchi timagotchi={timagotchi} />
         </div>
-        
+
     );
 }
