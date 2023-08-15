@@ -30,7 +30,6 @@ export default function Timagotchi({ timagotchi }) {
     const [timClean, setTimClean] = useState(roundedCleanliness);
     const [timPoop, setTimPoop] = useState(timagotchi.hasPooped);
 
-
     let feedButton;
     let playButton;
     let cleanButton;
@@ -56,11 +55,6 @@ export default function Timagotchi({ timagotchi }) {
     const [hungry, setHungry] = useState(feedButton);
     const [bored, setBored] = useState(playButton);
     const [clean, setClean] = useState(cleanButton);
-    // if (timagotchi.cleanliness.status === 'CLEAN') {
-    //     cleanButton = <button className="btn btn-secondary mx-1 disabled">Clean</button>;
-    // } else {
-    //     cleanButton = <button className="btn btn-success mx-1" onClick={handleClean}>Clean</button>;
-    // }
 
     function handleFeed() {
         axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/feed/${userId}/${timagotchi._id}`)

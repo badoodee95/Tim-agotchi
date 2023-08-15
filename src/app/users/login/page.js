@@ -16,12 +16,10 @@ export default function Login() {
     const [error, setError] = useState(false);
 
     const handleEmail = (e) => {
-        // fill in code
         setEmail(e.target.value);
     };
 
     const handlePassword = (e) => {
-        // fill in code
         setPassword(e.target.value);
     };
 
@@ -48,12 +46,9 @@ export default function Login() {
                 }
             })
             .catch(error => {
-                // if (error.response.data.message === 'User not found') {
                 console.log('===> Error in Login', error);
                 setError(true);
-                // }
             });
-
     };
 
     useEffect(() => {
