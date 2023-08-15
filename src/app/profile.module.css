@@ -52,6 +52,7 @@
     background-size: cover;
     background-position: center;
     z-index: -1;
+    overflow-y: scroll;
 }
 
 #backgroundImage {

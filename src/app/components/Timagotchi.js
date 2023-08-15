@@ -205,6 +205,8 @@ export default function Timagotchi({ timagotchi }) {
                         <div className="d-flex justify-content-center mt-3">
                             <button onClick={handleRelease} className="btn btn-danger mx-1">Release</button>
                         </div>
+                        <br />
+                        <br />
                     </>
                 }
             </div>
