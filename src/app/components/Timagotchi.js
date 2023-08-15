@@ -15,7 +15,7 @@ export default function Timagotchi({ timagotchi }) {
         if (typeof window !== 'undefined') {
             setUserId(localStorage.getItem('userId'))
         }
-    }, [userId]);
+    }, []);
 
     const roundedFood = Math.round(timagotchi.food.value);
     const roundedMood = Math.round(timagotchi.mood.value);
@@ -55,7 +55,7 @@ export default function Timagotchi({ timagotchi }) {
     const [clean, setClean] = useState(cleanButton);
 
     function handleFeed() {
-        axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/feed/${userId}/${timagotchi._id}`)
+        axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/feed/${timagotchi.user[0]}/${timagotchi._id}`)
             .then(response => {
                 setTimFood(response.data.timagotchi.food.value);
                 setTimFriend(response.data.timagotchi.friendship.value);
@@ -68,7 +68,7 @@ export default function Timagotchi({ timagotchi }) {
     }
 
     function handlePlay() {
-        axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/play/${userId}/${timagotchi._id}`)
+        axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/play/${timagotchi.user[0]}/${timagotchi._id}`)
             .then(response => {
                 setTimMood(response.data.timagotchi.mood.value);
                 setTimFriend(response.data.timagotchi.friendship.value);
@@ -81,7 +81,7 @@ export default function Timagotchi({ timagotchi }) {
     }
 
     function handleClean() {
-        axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/clean/${userId}/${timagotchi._id}`)
+        axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/clean/${timagotchi.user[0]}/${timagotchi._id}`)
             .then(response => {
                 setTimClean(response.data.timagotchi.cleanliness.value);
                 setTimFriend(response.data.timagotchi.friendship.value);
@@ -96,7 +96,7 @@ export default function Timagotchi({ timagotchi }) {
     }
 
     function handlePoop() {
-        axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/pooperscooper/${userId}/${timagotchi._id}`)
+        axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/pooperscooper/${timagotchi.user[0]}/${timagotchi._id}`)
             .then(response => {
                 setTimPoop(response.data.timagotchi.hasPooped);
                 console.log('response data', response.data.message);
