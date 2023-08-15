@@ -87,7 +87,6 @@ export default function Login() {
     }
 
     return (
-
         <>
             <title>tim-agotchi - Login</title>
             <section className="vh-100 bg-image"
