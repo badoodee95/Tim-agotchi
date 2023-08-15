@@ -53,7 +53,7 @@ export default function Login() {
 
     useEffect(() => {
         if (redirect) {
-            router.push(`/users/profile-test/${localStorage.getItem('userId')}`);
+            router.push(`/users/profile/${localStorage.getItem('userId')}`);
         }
     }, [redirect, router]);
 
