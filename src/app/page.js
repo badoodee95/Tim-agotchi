@@ -8,7 +8,7 @@ import { LoadingCircle } from './components/Loading';
 import Link from 'next/link';
 
 export default function Home() {
-  const [user, setUser] = useState({});
+
   const [timagotchis, setTimagotchis] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -32,13 +32,13 @@ export default function Home() {
       <div id={styles.backgroundImage}></div>
       <section className='' id={styles.myTimagotchis}>
         <h1 className='text-center' id={styles.text}>All Timagotchis</h1>
-          <div className='d-flex flex-wrap justify-content-center mt-4'>
-            {timagotchis.map((timagotchi) => (
-              <Link href={`users/${timagotchi._id}`} key={timagotchi._id} className='text-decoration-none'>
-                <MyTimagotchi Timagotchi={timagotchi} key={timagotchi._id} />
-              </ Link>
-            ))}
-          </div>
+        <div className='d-flex flex-wrap justify-content-center mt-4'>
+          {timagotchis.map((timagotchi) => (
+            <Link href={`users/${timagotchi._id}`} key={timagotchi._id} className='text-decoration-none'>
+              <MyTimagotchi Timagotchi={timagotchi} key={timagotchi._id} />
+            </ Link>
+          ))}
+        </div>
       </section>
     </main>
   );

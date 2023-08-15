@@ -8,17 +8,18 @@ import styles from '@/app/profile.module.css';
 import axios from 'axios';
 import { LoadingCircle } from '@/app/components/Loading';
 import AllUsers from '@/app/components/AllUsers';
+import { useRouter } from 'next/navigation';
 
 export default function ProfileTest() {
-
-    const { userId } = useParams();
+    const [userId, setUserId] = useState('');
     const [users, setUsers] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const router = useRouter();
+
     useEffect(() => {
         const fetchUserData = async () => {
             try {
                 const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`);
-                console.log('profile page response', response.data);
                 setUsers(response.data.users);
                 setIsLoading(false);
             } catch (error) {
@@ -27,7 +28,15 @@ export default function ProfileTest() {
         };
 
         fetchUserData();
+
+        if (typeof window !== 'undefined') {
+            setUserId(localStorage.getItem('userId'));
+        }
     }, [userId]);
+
+    if (userId === null) {
+        router.push('/users/login');
+    }
 
     if (isLoading) return (<LoadingCircle />);
 

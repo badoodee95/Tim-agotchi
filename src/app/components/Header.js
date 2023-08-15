@@ -49,7 +49,7 @@ export default function Header() {
         userAction =
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="menu-items nav-item">
-                    <Link className="menu-items nav-link" href={`/users/profile-test/${userId}`}>&nbsp;&nbsp;PROFILE</Link>
+                    <Link className="menu-items nav-link" href={`/users/profile/${userId}`}>&nbsp;&nbsp;PROFILE</Link>
                 </li>
 
                 <li className="nav-item">
