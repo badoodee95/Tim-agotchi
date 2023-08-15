@@ -92,6 +92,7 @@ const Signup = () => {
 	}
 
 	return (
+
 		<section className="vh-100 vw-100 bg-image"
 			style={{ backgroundImage: "url('https://i.imgur.com/4mcuNow.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
 			<div className="mask d-flex align-items-center h-100 gradient-custom-3">
@@ -123,13 +124,14 @@ const Signup = () => {
 									</form>
 									<p className={`text-center mt-5 mb-0 text-light ${styles.filledInText}`}>ALREADY HAVE AN ACCOUNT? <Link href="/users/login"
 										className={`fw-bold  text-light ${styles.filledInText}`}><u>LOGIN HERE</u></Link></p>
+
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section >
+			</section >
+		</>
 	);
 
 };

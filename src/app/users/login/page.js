@@ -43,6 +43,8 @@ export default function Login() {
                     localStorage.setItem('userId', response.data.userData.id);
                     setAuthToken(response.data.token);
                     let decoded = jwtDecode(response.data.token);
+                    const event = new Event('userLoggedIn');
+                    window.dispatchEvent(event);
                     setRedirect(true);
                 }
             })
@@ -85,6 +87,7 @@ export default function Login() {
     }
 
     return (
+
         <section className="vh-100 bg-image"
             style={{
                 backgroundImage: 'url(https://i.imgur.com/hZTsqdL.jpg)', backgroundSize: "cover", backgroundPosition: "center"
@@ -97,28 +100,29 @@ export default function Login() {
                                 <div className="card-body p-5">
                                     <h2 className="text-center mb-5 text-light" id={styles.title}>LOGIN TO TIMAGOTCHI</h2>
 
-                                    <form onSubmit={handleSubmit}>
-                                        <div className="form-outline mb-4 text-light">
-                                            <input type="text" id="form3Example1cg" className="form-control form-control-lg" value={email} onChange={handleEmail} />
-                                            <label className="form-label" htmlFor="form3Example1cg" id={styles.title}>EMAIL</label>
-                                        </div>
-                                        <div className="form-outline mb-4 text-light">
-                                            <input type="password" id="form3Example3cg" className="form-control form-control-lg" value={password} onChange={handlePassword} />
-                                            <label className="form-label" htmlFor="form3Example3cg" id={styles.title}>PASSWORD</label>
-                                        </div>
-                                        <div className="d-flex justify-content-center">
-                                            <button type="submit"
-                                                className="btn btn-block btn-lg text-body" id={styles.buttons}>LOGIN</button>
-                                        </div>
-                                    </form>
-                                    <p className="text-center mt-5 mb-0 " id={styles.title}> NO ACCOUNT? <Link href="/users/signup"
-                                        className="fw-bold text-body" id={styles.title}><u>SIGN UP HERE</u></Link></p>
+                                        <form onSubmit={handleSubmit}>
+                                            <div className="form-outline mb-4 text-light">
+                                                <input type="text" id="form3Example1cg" className="form-control form-control-lg" value={email} onChange={handleEmail} />
+                                                <label className="form-label" htmlFor="form3Example1cg" id={styles.title}>EMAIL</label>
+                                            </div>
+                                            <div className="form-outline mb-4 text-light">
+                                                <input type="password" id="form3Example3cg" className="form-control form-control-lg" value={password} onChange={handlePassword} />
+                                                <label className="form-label" htmlFor="form3Example3cg" id={styles.title}>PASSWORD</label>
+                                            </div>
+                                            <div className="d-flex justify-content-center">
+                                                <button type="submit"
+                                                    className="btn btn-block btn-lg text-body" id={styles.buttons}>LOGIN</button>
+                                            </div>
+                                        </form>
+                                        <p className="text-center mt-5 mb-0 " id={styles.title}> NO ACCOUNT? <Link href="/users/signup"
+                                            className="fw-bold text-body" id={styles.title}><u>SIGN UP HERE</u></Link></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section >
+            </section >
+        </>
     );
 }
