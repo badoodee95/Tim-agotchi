@@ -87,7 +87,9 @@ export default function Timagotchi({ timagotchi }) {
             .then(response => {
                 setTimClean(response.data.timagotchi.cleanliness.value);
                 setTimFriend(response.data.timagotchi.friendship.value);
-                setClean(<button className="btn btn-secondary mx-1 disabled">Clean</button>);
+                if (response.data.timagotchi.cleanliness.value === 100) {
+                    setClean(<button className="btn btn-secondary mx-1 disabled">Clean</button>);
+                }
                 console.log('response data', response.data.message);
             })
             .catch(error => {
