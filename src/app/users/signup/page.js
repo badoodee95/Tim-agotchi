@@ -95,7 +95,7 @@ const Signup = () => {
 		<>
 			<title>tim-agotchi - Register</title>
 			<section className="vh-100 vw-100 bg-image"
-				style={{ backgroundImage: "url('https://img.freepik.com/free-vector/frame-with-dogs-vector-white-background_53876-127700.jpg?w=2000')", backgroundSize: "cover", backgroundPosition: "center" }}>
+				style={{ backgroundImage: "url('https://i.imgur.com/4mcuNow.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
 				<div className="mask d-flex align-items-center h-100 gradient-custom-3">
 					<div className="container h-100">
 						<div className="row d-flex justify-content-center align-items-center h-100">

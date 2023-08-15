@@ -65,7 +65,7 @@ export default function Login() {
         return (
             <section className="vh-100 bg-image"
                 style={{
-                    backgroundImage: 'url(https://img.freepik.com/free-vector/animal-background-vector-with-cute-pets-illustration_53876-127698.jpg?w=2000&t=st=1691638487~exp=1691639087~hmac=5a0abcbd75513444612e84859d0bbf0222fbfe9af88e338b667d7dd943c8e012)', backgroundSize: "cover", backgroundPosition: "center"
+                    backgroundImage: 'url(https://i.imgur.com/hZTsqdL.jpg)', backgroundSize: "cover", backgroundPosition: "center"
                 }}>
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container h-100">
@@ -91,7 +91,7 @@ export default function Login() {
             <title>tim-agotchi - Login</title>
             <section className="vh-100 bg-image"
                 style={{
-                    backgroundImage: 'url(https://img.freepik.com/free-vector/animal-background-vector-with-cute-pets-illustration_53876-127698.jpg?w=2000&t=st=1691638487~exp=1691639087~hmac=5a0abcbd75513444612e84859d0bbf0222fbfe9af88e338b667d7dd943c8e012)', backgroundSize: "cover", backgroundPosition: "center"
+                    backgroundImage: 'url(https://i.imgur.com/hZTsqdL.jpg)', backgroundSize: "cover", backgroundPosition: "center"
                 }}>
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container h-100">
