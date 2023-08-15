@@ -13,6 +13,7 @@ export default function ProfileTest() {
     const { userId } = useParams();
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const router = useRouter();
     const reload = () => {
         window.location.reload();
     };
