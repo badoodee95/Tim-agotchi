@@ -30,7 +30,7 @@ export default function Home() {
       <title>tim-agotchi - Home</title>
       <div id={styles.backgroundImage}></div>
       <section className='' id={styles.myTimagotchis}>
-        <h1 className='text-center' id={styles.text}>All Timagotchis</h1>
+        <h1 className='text-center' id={styles.text}>ALL TIMAGOTCHIS</h1>
         <div className='d-flex flex-wrap justify-content-center mt-4'>
           {timagotchis.map((timagotchi) => (
             <Link href={`users/${timagotchi._id}`} key={timagotchi._id} className='text-decoration-none'>

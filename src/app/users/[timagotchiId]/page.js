@@ -25,8 +25,10 @@ export default function TimagotchiPage() {
     if (isLoading) return (<LoadingCircle />);
 
     return (
-        <div>
+
+        <div style='overflow-y: scroll'>
             <Timagotchi timagotchi={timagotchi} />
         </div>
+        
     );
 }
