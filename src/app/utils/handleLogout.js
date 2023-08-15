@@ -6,6 +6,7 @@ const handleLogout = () => {
     localStorage.removeItem('userId');
     localStorage.removeItem('expiration');
   }
+  localStorage.removeItem('userId');
 };
 
 export default handleLogout;

@@ -52,7 +52,7 @@ export default function NewTimagotchi() {
 
     return (
         <section className="vh-100 bg-image"
-            style={{ backgroundImage: "url('https://img.freepik.com/free-vector/hand-drawn-international-cat-day-background_23-2149487428.jpg?w=2000&t=st=1691642130~exp=1691642730~hmac=cfdf3c304f91a859462f333b680b81ed3fe3679f91f4a1420e56f48c4ef94ccd')", backgroundSize: "cover", backgroundPosition: "center" }}>
+            style={{ backgroundImage: "url('https://i.imgur.com/DXW6iL3.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
             <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                 <div className="container h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
