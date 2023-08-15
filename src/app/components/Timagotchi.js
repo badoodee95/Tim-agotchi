@@ -13,7 +13,7 @@ export default function Timagotchi({ timagotchi }) {
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            setUserId(localStorage.getItem('userId'))
+            setUserId(localStorage.getItem('userId'));
         }
     }, []);
 
@@ -109,15 +109,15 @@ export default function Timagotchi({ timagotchi }) {
     let ageElement;
 
     if (timagotchi.age = 1) {
-        ageElement = <p className='fontChange'>AGE: {timagotchi.age} DAY</p>
+        ageElement = <p className='fontChange'>AGE: {timagotchi.age} DAY</p>;
     } else {
-        ageElement = <p className='fontChange'>AGE: {timagotchi.age} DAYS</p>
+        ageElement = <p className='fontChange'>AGE: {timagotchi.age} DAYS</p>;
     }
 
     return (
         <>
             <title>tim-agotchi</title>
-            <div id={styles.backgroundImage}>
+            <div id={styles.backgroundTimagotchiImage}>
                 <div className="card" style={{ maxWidth: '35%', marginLeft: '33%', marginTop: '5%', paddingLeft: '1%', paddingTop: '1%' }}>
                     <div className="row justify-content-center align-items-center">
                         <div className="col-md-12 text-center">
