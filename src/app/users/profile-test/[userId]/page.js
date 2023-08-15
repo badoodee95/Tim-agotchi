@@ -36,7 +36,7 @@ export default function ProfileTest() {
 
     return (
         <>
-            <title>tim-agotchi - {user.firstName}</title>
+            <title>tim-agotchi - Profile</title>
             <section className='vh-100 bg-image' id={styles.backgroundImage} style={{ overflowX: 'hidden', overflowY: 'auto' }}>
                 <div className="container" style={{ marginTop: '60px' }}>
                     <div className="main-body" >
