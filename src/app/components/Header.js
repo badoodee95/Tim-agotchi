@@ -8,7 +8,7 @@ import Instructions from './Instructions';
 
 export default function Header() {
     const [userId, setUserId] = useState(null);
-    const router = useRouter();
+
     useEffect(() => {
         require('bootstrap/dist/js/bootstrap.bundle.min');
 
@@ -43,6 +43,7 @@ export default function Header() {
             }
         };
     }, []);
+    
     let userAction;
 
     if (userId) {
@@ -83,7 +84,6 @@ export default function Header() {
     }
 
     return (
-
         <nav className="navbar bg-customcolor1 fixed-top border-primary-subtle">
             <div className="container-fluid">
                 <a className="menu-items navbar-brand mb-0 h1 text-light " href="/">TIM-AGOTCHI</a>
@@ -102,6 +102,5 @@ export default function Header() {
                 </div>
             </div>
         </nav>
-
     );
 }

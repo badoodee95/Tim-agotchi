@@ -4,13 +4,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 import styles from '@/app/MyTimagotchi.module.css';
 import Link from 'next/link';
 
-
 export default function MyTimagotchi({ Timagotchi }) {
-
     return (
-
         <div className="container d-flex justify-content-center align-items-center">
-            <div className="card bg-image mb-5" id={styles.cardShadow}> {/* background image goes here! style={{ backgroundImage: 'url(https://i.imgur.com/Qtrsrk5.jpg)' }} */}
+            <div className="card bg-image mb-5" id={styles.cardShadow}>
                 <br />
                 <div className="user text-center">
                     <div className="profile">
@@ -37,6 +34,5 @@ export default function MyTimagotchi({ Timagotchi }) {
                 </div>
             </div>
         </div >
-
     );
 };

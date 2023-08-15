@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -8,7 +8,6 @@ import ProfileImage from '@/app/components/ProfileImage.js';
 import axios from 'axios';
 
 export default function EditModal({ user, reload }) {
-
     const [show, setShow] = useState(false);
     const [data, setData] = useState(user);
     const handleClose = () => setShow(false);
@@ -18,6 +17,7 @@ export default function EditModal({ user, reload }) {
     const updateUserData = (newUserData) => {
         setData(newUserData);
     };
+
     const handleFileOpen = (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -34,8 +34,7 @@ export default function EditModal({ user, reload }) {
         axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${localStorage.getItem('userId')}`, data)
             .then((response) => {
                 updateUserData(response.data.user);
-            });
-
+            }); 
     };
     return (
         <div>

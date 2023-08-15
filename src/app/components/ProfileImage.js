@@ -5,7 +5,6 @@ import { LoadingLine } from './Loading';
 
 
 export default function UploadProfileImage({ profileImage, updateUserData }) {
-    // const [redirect, setRedirect] = useState(false);
     const [isLoading, setLoading] = useState(true);
     const [imageUploaded, setImageUploaded] = useState(false);
 
@@ -20,7 +19,6 @@ export default function UploadProfileImage({ profileImage, updateUserData }) {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log('image url', data.secure_url);
                     const secureUrl = data.secure_url;
                     const updateUser = { avatar: secureUrl };
                     axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${localStorage.getItem('userId')}`, updateUser)
