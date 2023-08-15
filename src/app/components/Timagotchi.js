@@ -115,8 +115,8 @@ export default function Timagotchi({ timagotchi }) {
     return (
         <>
             <title>tim-agotchi</title>
-            <div style={{ marginTop: '8%' }}>
-                <div className="card" style={{ maxWidth: '35%', margin: 'auto' }}>
+            <div id={styles.backgroundImage}>
+                <div className="card" style={{ maxWidth: '35%', marginLeft: '33%', marginTop: '5%', paddingLeft: '1%', paddingTop: '1%' }}>
                     <div className="row justify-content-center align-items-center">
                         <div className="col-md-12 text-center">
                             <h2 className='fontChange'>{timagotchi.name}</h2>
