@@ -3,10 +3,11 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import styles from '../profile.module.css';
+import { useRouter } from 'next/navigation';
 
 export default function Timagotchi({ timagotchi }) {
     const [userId, setUserId] = useState('');
-
+    const router = useRouter();
     useEffect(() => {
         if (typeof window !== 'undefined') {
             setUserId(localStorage.getItem('userId'));
@@ -98,6 +99,25 @@ export default function Timagotchi({ timagotchi }) {
             });
     }
 
+    function handleRelease() {
+        if (timagotchi.alive === false) {
+            alert('You cannot release a dead timagotchi!');
+        } else {
+            if (confirm('Are you sure you want to release your timagotchi?')) {
+                if (confirm('Are you really sure? Once you release your timagotchi, you cannot get it back!')) {
+                    axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/${timagotchi._id}`)
+                        .then(response => {
+                            alert('Your timagotchi has been released!');
+                            router.push(`/users/profile/${userId}`);
+                        })
+                        .catch(error => {
+                            console.log('Error updating timagotchi', error);
+                        });
+                }
+            }
+        }
+    }
+
     let ageElement;
 
     if (timagotchi.age = 1) {
@@ -176,11 +196,16 @@ export default function Timagotchi({ timagotchi }) {
                     </div>
                 </div>
                 {timagotchi.user[0] === userId &&
-                    <div className="d-flex justify-content-center mt-3">
-                        {hungry}
-                        {bored}
-                        {clean}
-                    </div>
+                    <>
+                        <div className="d-flex justify-content-center mt-3">
+                            {hungry}
+                            {bored}
+                            {clean}
+                        </div>
+                        <div className="d-flex justify-content-center mt-3">
+                            <button onClick={handleRelease} className="btn btn-danger mx-1">Release</button>
+                        </div>
+                    </>
                 }
             </div>
         </>
