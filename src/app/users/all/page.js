@@ -39,7 +39,9 @@ export default function ProfileTest() {
 
     let rows = [];
     users.forEach((user, index) => {
-        rows.push(<AllUsers user={user} key={index} />);
+        if (user._id !== userId) {
+            rows.push(<AllUsers user={user} key={index} />);
+        }
     });
 
     return (
