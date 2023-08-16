@@ -13,7 +13,7 @@ export default function MyTimagotchi({ Timagotchi }) {
                 <div className="user text-center">
                     <div className="profile">
 
-                        <Link href={`/users/${Timagotchi._id}`} ><img src={Timagotchi.image} className="rounded-circle" width="150" height="150" /></Link>
+                        <Link href={`/users/${Timagotchi._id}`} ><img src={Timagotchi.image} width="150" height="150" /></Link>
                         {Timagotchi.hasPooped &&
                             <img style={{ marginTop: '20%' }} src="https://www.pngfind.com/pngs/b/42-427701_exclamation-point-png.png" width="20" height="50" />}
                     </div>
