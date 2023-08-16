@@ -121,7 +121,7 @@ export default function Timagotchi({ timagotchi }) {
     let ageElement;
 
     if (timagotchi.age = 1) {
-        ageElement = <p className='fontChange'>AGE: {timagotchi.age} DAY</p>;
+        ageElement = <p ><span className='fontChange'>AGE:</span><span> {timagotchi.age}</span><span className='fontChange'> DAY</span></p>;
     } else {
         ageElement = <p className='fontChange'>AGE: {timagotchi.age} DAYS</p>;
     }
