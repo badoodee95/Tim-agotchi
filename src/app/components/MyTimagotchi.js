@@ -9,9 +9,13 @@ export default function MyTimagotchi({ Timagotchi }) {
         <div className="container d-flex justify-content-center align-items-center">
             <div className="card bg-image mb-5" id={styles.cardShadow}>
                 <br />
+
                 <div className="user text-center">
                     <div className="profile">
+
                         <Link href={`/users/${Timagotchi._id}`} ><img src={Timagotchi.image} className="rounded-circle" width="150" height="150" /></Link>
+                        {Timagotchi.hasPooped &&
+                            <img style={{ marginTop: '20%' }} src="https://www.pngfind.com/pngs/b/42-427701_exclamation-point-png.png" width="20" height="50" />}
                     </div>
                 </div>
                 <div className="mt-3 text-center" id={styles.text}>
