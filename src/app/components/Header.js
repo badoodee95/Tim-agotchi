@@ -43,7 +43,7 @@ export default function Header() {
             }
         };
     }, []);
-    
+
     let userAction;
 
     if (userId) {
@@ -64,7 +64,6 @@ export default function Header() {
                     <Link className="menu-items nav-link" href="/users/login" onClick={handleLogout} >&nbsp;&nbsp;LOGOUT</Link>
                 </li>
                 <hr />
-                <Instructions />
             </ul>;
 
     } else {
@@ -79,7 +78,6 @@ export default function Header() {
                     <Link className="menu-items nav-link" href="/users/login" >&nbsp;&nbsp;LOGIN</Link>
                 </li>
                 <hr />
-                <Instructions />
             </ul>;
     }
 
@@ -98,7 +96,9 @@ export default function Header() {
                     <hr className='horizLine' />
                     <div className="offcanvas-body">
                         {userAction}
+                        <Instructions />
                     </div>
+
                 </div>
             </div>
         </nav>
