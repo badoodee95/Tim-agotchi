@@ -65,7 +65,6 @@ export default function Home() {
                 console.log(error);
               });
           } else {
-
             router.push('/users/login');
           }
         })
