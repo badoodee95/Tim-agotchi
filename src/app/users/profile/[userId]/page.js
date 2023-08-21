@@ -1,12 +1,15 @@
 'use client';
 import MyTimagotchiList from '@/app/components/MyTimagotchisList';
 import 'bootstrap/dist/css/bootstrap.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import EditModal from '@/app/components/EditModal';
 import styles from '@/app/profile.module.css';
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
+import setAuthToken from '@/app/utils/setAuthToken';
 import { LoadingCircle, LoadingLine } from '@/app/components/Loading';
+import Expiration from '@/app/components/expiration';
 
 export default function ProfileTest() {
     const [authUserId, setAuthUserId] = useState('');
@@ -18,23 +21,42 @@ export default function ProfileTest() {
         window.location.reload();
     };
 
+    // <Expiration />;
+
     useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${userId}`);
-                setUser(response.data.user);
-                setIsLoading(false);
-            } catch (error) {
-                console.log('Error fetching user data', error);
-            }
-        };
+        setAuthToken(localStorage.getItem('jwtToken'));
+        if (localStorage.getItem('jwtToken')) {
+            axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`)
+                .then((response) => {
+                    let userData = jwtDecode(localStorage.getItem('jwtToken'));
+                    if (userData.email === localStorage.getItem('email')) {
+                        const fetchUserData = async () => {
+                            try {
+                                const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${userId}`);
+                                setUser(response.data.user);
+                                setIsLoading(false);
+                            } catch (error) {
+                                console.log('Error fetching user data', error);
+                            }
+                        };
 
-        fetchUserData();
+                        fetchUserData();
 
-        if (typeof window !== 'undefined') {
-            setAuthUserId(localStorage.getItem('userId'));
+                        if (typeof window !== 'undefined') {
+                            setAuthUserId(localStorage.getItem('userId'));
+                        }
+                    } else {
+                        router.push('/users/login');
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                    router.push('/users/login');
+                });
+        } else {
+            router.push('/users/login');
         }
-    }, [userId]);
+    }, [router, userId]);
 
     if (authUserId === null) {
         router.push('/users/login');

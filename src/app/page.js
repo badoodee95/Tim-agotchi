@@ -7,30 +7,16 @@ import MyTimagotchi from './components/MyTimagotchi';
 import { LoadingCircle } from './components/Loading';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import setAuthToken from './utils/setAuthToken';
-import handleLogout from './utils/handleLogout';
-import jwtDecode from 'jwt-decode';
+
 import 'animate.css';
+import Expiration from './components/expiration';
 
 export default function Home() {
   const [timagotchis, setTimagotchis] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
-  useEffect(() => {
-    if (typeof window !== undefined) {
-      const expirationTime = new Date(parseInt(localStorage.getItem('expiration')) * 1000);
-      let currentTime = Date.now();
-
-      setAuthToken(localStorage.getItem('jwtToken'));
-      // make a condition that compares exp and current time
-      if (currentTime >= expirationTime) {
-        handleLogout();
-        alert('Session has ended. Please login to continue.');
-        router.push('/users/login');
-      }
-    }
-  }, [router]);
+  // <Expiration />;
 
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis`)
@@ -43,39 +29,6 @@ export default function Home() {
         console.log(error);
       });
   }, []);
-
-  useEffect(() => {
-    setAuthToken(localStorage.getItem('jwtToken'));
-    if (localStorage.getItem('jwtToken')) {
-      axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`)
-        .then((response) => {
-          // data is an object
-          // console.log('response', response.data);
-          let userData = jwtDecode(localStorage.getItem('jwtToken'));
-          console.log('userData', userData);
-          if (userData.email === localStorage.getItem('email')) {
-            setIsLoading(false);
-            axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis`)
-              .then((response) => {
-                console.log(response.data);
-                setTimagotchis(response.data);
-                setIsLoading(false);
-              })
-              .catch((error) => {
-                console.log(error);
-              });
-          } else {
-            router.push('/users/login');
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-          router.push('/users/login');
-        });
-    } else {
-      router.push('/users/login');
-    }
-  }, [router]);
 
   if (isLoading) return <LoadingCircle />;
 

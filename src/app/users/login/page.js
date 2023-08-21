@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import setAuthToken from '@/app/utils/setAuthToken';
-import jwtDecode from 'jwt-decode';
+// import jwtDecode from 'jwt-decode';
 import Link from 'next/link';
 import styles from '@/app/login.module.css';
 
@@ -23,10 +23,6 @@ export default function Login() {
         setPassword(e.target.value);
     };
 
-    const reload = () => {
-        window.location.reload();
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault(); // at the beginning of a submit function
 
@@ -38,7 +34,7 @@ export default function Login() {
                     localStorage.setItem('expiration', response.data.userData.exp);
                     localStorage.setItem('userId', response.data.userData.id);
                     setAuthToken(response.data.token);
-                    let decoded = jwtDecode(response.data.token);
+                    // let decoded = jwtDecode(response.data.token);
                     const event = new Event('userLoggedIn');
                     window.dispatchEvent(event);
                     setRedirect(true);

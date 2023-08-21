@@ -3,6 +3,7 @@ import styles from '@/app/signup.module.css';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import Expiration from '@/app/components/expiration';
 
 export default function NewTimagotchi() {
     const [userId, setUserId] = useState('');
@@ -13,6 +14,8 @@ export default function NewTimagotchi() {
 
     const [redirect, setRedirect] = useState(false);
     const router = useRouter();
+
+    // <Expiration />;
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
