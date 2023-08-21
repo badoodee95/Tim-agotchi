@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import 'animate.css';
-import Expiration from './components/expiration';
+import Expiration from './components/Expiration';
 
 export default function Home() {
   const [timagotchis, setTimagotchis] = useState([]);
