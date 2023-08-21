@@ -3,7 +3,7 @@ import styles from '@/app/signup.module.css';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-import Expiration from '@/app/components/expiration';
+import Expiration from '@/app/components/Expiration';
 
 export default function NewTimagotchi() {
     const [userId, setUserId] = useState('');

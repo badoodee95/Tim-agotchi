@@ -6,7 +6,7 @@ import axios from 'axios';
 import { LoadingCircle } from '@/app/components/Loading';
 import AllUsers from '@/app/components/AllUsers';
 import { useRouter } from 'next/navigation';
-import Expiration from '@/app/components/expiration';
+import Expiration from '@/app/components/Expiration';
 
 export default function ProfileTest() {
     const [userId, setUserId] = useState('');

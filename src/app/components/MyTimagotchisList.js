@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import jwtDecode from "jwt-decode";
 import setAuthToken from "../utils/setAuthToken";
 import { LoadingLine } from "./Loading";
-import Expiration from "./expiration";
+import Expiration from "./Expiration";
 import axios from "axios";
 import Link from "next/link";
 

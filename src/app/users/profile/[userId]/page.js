@@ -9,7 +9,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import setAuthToken from '@/app/utils/setAuthToken';
 import { LoadingCircle, LoadingLine } from '@/app/components/Loading';
-import Expiration from '@/app/components/expiration';
+import Expiration from '@/app/components/Expiration';
 
 export default function ProfileTest() {
     const [authUserId, setAuthUserId] = useState('');
