@@ -3,7 +3,7 @@ import './globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Inter } from 'next/font/google';
 import Header from './components/Header';
-import Expiration from './components/expiration';
+import Expiration from './components/Expiration';
 
 const inter = Inter({ subsets: ['latin'] });
 
