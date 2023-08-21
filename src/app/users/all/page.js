@@ -14,29 +14,37 @@ export default function ProfileTest() {
     const [isLoading, setIsLoading] = useState(true);
     const router = useRouter();
 
-    // <Expiration />;
-
     useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`);
-                setUsers(response.data.users);
-                setIsLoading(false);
-            } catch (error) {
-                console.log('Error fetching user data', error);
-            }
-        };
+        setAuthToken(localStorage.getItem('jwtToken'));
+        if (localStorage.getItem('jwtToken')) {
+            axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`)
+                .then((response) => {
+                    let userData = jwtDecode(localStorage.getItem('jwtToken'));
+                    if (userData.email === localStorage.getItem('email')) {
+                        const fetchUserData = async () => {
+                            try {
+                                const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`);
+                                setUsers(response.data.users);
+                                setIsLoading(false);
+                            } catch (error) {
+                                console.log('Error fetching user data', error);
+                            }
+                        };
 
-        fetchUserData();
+                        fetchUserData();
 
-        if (typeof window !== 'undefined') {
-            setUserId(localStorage.getItem('userId'));
+                    } else {
+                        router.push('/users/login');
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                    router.push('/users/login');
+                });
+        } else {
+            router.push('/users/login');
         }
-    }, [userId]);
-
-    if (userId === null) {
-        router.push('/users/login');
-    }
+    }, [router, userId]);
 
     if (isLoading) return (<LoadingCircle />);
 

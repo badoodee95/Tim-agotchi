@@ -8,11 +8,9 @@ import styles from '@/app/profile.module.css';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import setAuthToken from '@/app/utils/setAuthToken';
-import { LoadingCircle, LoadingLine } from '@/app/components/Loading';
-import Expiration from '@/app/components/Expiration';
+import { LoadingCircle } from '@/app/components/Loading';
 
 export default function ProfileTest() {
-    const [authUserId, setAuthUserId] = useState('');
     const { userId } = useParams();
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -20,8 +18,6 @@ export default function ProfileTest() {
     const reload = () => {
         window.location.reload();
     };
-
-    // <Expiration />;
 
     useEffect(() => {
         setAuthToken(localStorage.getItem('jwtToken'));
@@ -42,9 +38,6 @@ export default function ProfileTest() {
 
                         fetchUserData();
 
-                        if (typeof window !== 'undefined') {
-                            setAuthUserId(localStorage.getItem('userId'));
-                        }
                     } else {
                         router.push('/users/login');
                     }
@@ -57,10 +50,6 @@ export default function ProfileTest() {
             router.push('/users/login');
         }
     }, [router, userId]);
-
-    if (authUserId === null) {
-        router.push('/users/login');
-    }
 
     if (isLoading) return (<LoadingCircle />);
 

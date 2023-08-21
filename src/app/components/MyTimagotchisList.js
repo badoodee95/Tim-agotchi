@@ -15,8 +15,6 @@ export default function MyTimagotchiList({ currentUser }) {
     const [isLoading, setIsLoading] = useState(true);
     const router = useRouter();
 
-    // <Expiration />;
-
     useEffect(() => {
         setAuthToken(localStorage.getItem('jwtToken'));
         if (localStorage.getItem('jwtToken')) {

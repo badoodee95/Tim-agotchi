@@ -6,17 +6,11 @@ import styles from './page.module.css';
 import MyTimagotchi from './components/MyTimagotchi';
 import { LoadingCircle } from './components/Loading';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-
 import 'animate.css';
-import Expiration from './components/Expiration';
 
 export default function Home() {
   const [timagotchis, setTimagotchis] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const router = useRouter();
-
-  // <Expiration />;
 
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis`)
