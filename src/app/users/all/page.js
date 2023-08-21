@@ -6,7 +6,8 @@ import axios from 'axios';
 import { LoadingCircle } from '@/app/components/Loading';
 import AllUsers from '@/app/components/AllUsers';
 import { useRouter } from 'next/navigation';
-import Expiration from '@/app/components/Expiration';
+import jwtDecode from 'jwt-decode';
+import setAuthToken from '@/app/utils/setAuthToken';
 
 export default function ProfileTest() {
     const [userId, setUserId] = useState('');

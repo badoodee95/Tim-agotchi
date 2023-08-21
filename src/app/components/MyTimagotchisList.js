@@ -72,7 +72,7 @@ export default function MyTimagotchiList({ currentUser }) {
                     <h1 className='underlined'>{currentUser.firstName.toUpperCase()}&apos;s TIMAGOTCHIS</h1>
                 }
             </div>
-            <div className='container'>
+            <div className='animate__animated animate__fadeInUp container'>
                 <div className='row row-cols-auto' style={{ justifyContent: 'center' }}>
                     {rows}
 

@@ -9,6 +9,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import setAuthToken from '@/app/utils/setAuthToken';
 import { LoadingCircle } from '@/app/components/Loading';
+import 'animate.css';
 
 export default function ProfileTest() {
     const { userId } = useParams();
@@ -60,7 +61,7 @@ export default function ProfileTest() {
                 <div className="container" style={{ marginTop: '60px' }}>
                     <div className="main-body" >
                         <div className="row gutters-sm" style={{ justifyContent: 'center' }}>
-                            <div className="col-lg-2 mb-2">
+                            <div className="animate__animated animate__fadeInLeft col-lg-2 mb-2">
                                 <div className="card mt-4" id={styles.profileBorder} >
                                     <div className="card-body" id={styles.profileImagePlacement}>
                                         <div className="d-flex flex-column align-items-center text-center">
@@ -76,7 +77,7 @@ export default function ProfileTest() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-8 mt-4">
+                            <div className="animate__animated animate__fadeInRight col-md-8 mt-4">
                                 <div className="mt-2">
                                 </div>
                                 <div className="card mb-3" id={styles.profileInfoBorder}>
