@@ -61,7 +61,7 @@ export default function ProfileTest() {
                 <div className="container" style={{ marginTop: '60px' }}>
                     <div className="main-body" >
                         <div className="row gutters-sm" style={{ justifyContent: 'center' }}>
-                            <div className="animate__animated animate__fadeInLeft col-lg-2 mb-2">
+                            <div className={`animate__animated animate__fadeInLeft ${styles.profilePicPosition} col-lg-2 mb-2`} id={styles.profilePicPosition} >
                                 <div className="card mt-4" id={styles.profileBorder} >
                                     <div className="card-body" id={styles.profileImagePlacement}>
                                         <div className="d-flex flex-column align-items-center text-center">
@@ -70,8 +70,8 @@ export default function ProfileTest() {
                                     </div>
                                 </div>
                                 <div className="row mt-4">
-                                    <div className="col-sm-12 d-flex justify-content-center">
-                                        <div className="col-sm-12 d-flex justify-content-center me-3">
+                                    <div className="col-sm-12 d-flex ">
+                                        <div >
                                             <EditModal user={user} reload={reload} />
                                         </div>
                                     </div>

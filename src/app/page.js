@@ -15,7 +15,6 @@ export default function Home() {
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis`)
       .then((response) => {
-        console.log(response.data);
         setTimagotchis(response.data);
         setIsLoading(false);
       })

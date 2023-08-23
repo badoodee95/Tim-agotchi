@@ -47,6 +47,12 @@ export default function Timagotchi({ timagotchi }) {
         cleanButton = <button className="btn btn-success mx-1" onClick={handleClean}>Clean</button>;
     }
 
+    if (timagotchi.alive === false) {
+        feedButton = <button className="btn btn-secondary mx-1 disabled">Feed</button>;
+        playButton = <button className="btn btn-secondary mx-1 disabled">Play</button>;
+        cleanButton = <button className="btn btn-secondary mx-1 disabled">Clean</button>;
+    }
+
     const [hungry, setHungry] = useState(feedButton);
     const [bored, setBored] = useState(playButton);
     const [clean, setClean] = useState(cleanButton);
@@ -136,7 +142,7 @@ export default function Timagotchi({ timagotchi }) {
         <>
             <title>tim-agotchi</title>
             <div id={styles.backgroundTimagotchiImage}>
-                <div className="card" style={{ maxWidth: '35%', marginLeft: '33%', marginTop: '5%', paddingLeft: '1%', paddingTop: '1%' }}>
+                <div className="card" id={styles.timCard} >
                     <div className="row justify-content-center align-items-center">
                         <div className="col-md-12 text-center">
                             <h2 className='fontChange'>{timagotchi.name.toUpperCase()}</h2>
