@@ -6,6 +6,8 @@ import axios from 'axios';
 import { LoadingCircle } from '@/app/components/Loading';
 import AllUsers from '@/app/components/AllUsers';
 import { useRouter } from 'next/navigation';
+import jwtDecode from 'jwt-decode';
+import setAuthToken from '@/app/utils/setAuthToken';
 
 export default function ProfileTest() {
     const [userId, setUserId] = useState('');
@@ -14,26 +16,36 @@ export default function ProfileTest() {
     const router = useRouter();
 
     useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`);
-                setUsers(response.data.users);
-                setIsLoading(false);
-            } catch (error) {
-                console.log('Error fetching user data', error);
-            }
-        };
+        setAuthToken(localStorage.getItem('jwtToken'));
+        if (localStorage.getItem('jwtToken')) {
+            axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`)
+                .then((response) => {
+                    let userData = jwtDecode(localStorage.getItem('jwtToken'));
+                    if (userData.email === localStorage.getItem('email')) {
+                        const fetchUserData = async () => {
+                            try {
+                                const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`);
+                                setUsers(response.data.users);
+                                setIsLoading(false);
+                            } catch (error) {
+                                console.log('Error fetching user data', error);
+                            }
+                        };
 
-        fetchUserData();
+                        fetchUserData();
 
-        if (typeof window !== 'undefined') {
-            setUserId(localStorage.getItem('userId'));
+                    } else {
+                        router.push('/users/login');
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                    router.push('/users/login');
+                });
+        } else {
+            router.push('/users/login');
         }
-    }, [userId]);
-
-    if (userId === null) {
-        router.push('/users/login');
-    }
+    }, [router, userId]);
 
     if (isLoading) return (<LoadingCircle />);
 

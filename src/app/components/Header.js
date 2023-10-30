@@ -5,9 +5,13 @@ import handleLogout from '../utils/handleLogout';
 import '@/app/globals.css';
 import { useRouter } from 'next/navigation';
 import Instructions from './Instructions';
+import axios from 'axios';
+import setAuthToken from '@/app/utils/setAuthToken';
 
 export default function Header() {
+    const router = useRouter();
     const [userId, setUserId] = useState(null);
+    const [redirect, setRedirect] = useState(false);
 
     useEffect(() => {
         require('bootstrap/dist/js/bootstrap.bundle.min');
@@ -43,7 +47,38 @@ export default function Header() {
             }
         };
     }, []);
-    
+
+    const email = process.env.NEXT_PUBLIC_DEMO_EMAIL;
+    const password = process.env.NEXT_PUBLIC_DEMO_PASS;
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); // at the beginning of a submit function
+
+        axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/login`, { email, password })
+            .then(response => {
+                if (typeof window !== 'undefined') {
+                    localStorage.setItem('jwtToken', response.data.token);
+                    localStorage.setItem('email', response.data.userData.email);
+                    localStorage.setItem('expiration', response.data.userData.exp);
+                    localStorage.setItem('userId', response.data.userData.id);
+                    setAuthToken(response.data.token);
+                    // let decoded = jwtDecode(response.data.token);
+                    const event = new Event('userLoggedIn');
+                    window.dispatchEvent(event);
+                    setRedirect(true);
+                }
+            })
+            .catch(error => {
+                console.log('===> Error in Login', error);
+            });
+    };
+
+    useEffect(() => {
+        if (redirect) {
+            router.push(`/users/profile/${localStorage.getItem('userId')}`);
+        }
+    }, [redirect, router]);
+
     let userAction;
 
     if (userId) {
@@ -64,7 +99,6 @@ export default function Header() {
                     <Link className="menu-items nav-link" href="/users/login" onClick={handleLogout} >&nbsp;&nbsp;LOGOUT</Link>
                 </li>
                 <hr />
-                <Instructions />
             </ul>;
 
     } else {
@@ -79,9 +113,14 @@ export default function Header() {
                     <Link className="menu-items nav-link" href="/users/login" >&nbsp;&nbsp;LOGIN</Link>
                 </li>
                 <hr />
-                <Instructions />
+                <li className="nav-item">
+                    <button className="menu-items nav-link" onClick={handleSubmit} >&nbsp;&nbsp;DEMO ACCOUNT</button>
+                </li>
+                <hr />
             </ul>;
     }
+
+
 
     return (
         <nav className="navbar bg-customcolor1 fixed-top border-primary-subtle">
@@ -98,7 +137,9 @@ export default function Header() {
                     <hr className='horizLine' />
                     <div className="offcanvas-body">
                         {userAction}
+                        <Instructions />
                     </div>
+
                 </div>
             </div>
         </nav>

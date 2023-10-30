@@ -19,3 +19,9 @@
     font-family: 'PrettyWeirdo';
     color: palevioletred;
 }
+
+@media only screen and (max-width: 480px) {
+    #myTimagotchis {
+        margin-top: 14%;
+    }
+}

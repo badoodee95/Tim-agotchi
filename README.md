@@ -4,9 +4,9 @@ Welcome to Tim-agotchi!
 Tim-agotchi is a virtual pet game where you can create your own tim-agotchi and take care of it. you can feed it, play with it, and even clean up after it! you can also visit other users and see their tim-agotchis.
 
 ## Deployment
-- Frontend deployed on [Netlify](https://timagotchi.netlify.app/)
-- Backend deployed on [Heroku](https://timagotchi-cf3b75773b29.herokuapp.com/)
-- Backend [Github](https://github.com/TimP-97/tim-agotchi-backend)
+- Frontend deployed on [Netlify](https://tim-agotchi.netlify.app/)
+- Backend deployed on [Heroku](https://timagotchi-backend-01ac55506dba.herokuapp.com/)
+- Backend [Github](https://github.com/jaylee1021/tim-agotchi-backend)
 
 ## User Interface
 

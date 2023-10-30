@@ -3,6 +3,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import styles from '@/app/MyTimagotchi.module.css';
 import Link from 'next/link';
+import 'animate.css';
 
 export default function MyTimagotchi({ Timagotchi }) {
     return (
@@ -15,7 +16,8 @@ export default function MyTimagotchi({ Timagotchi }) {
 
                         <Link href={`/users/${Timagotchi._id}`} ><img src={Timagotchi.image} width="150" height="150" /></Link>
                         {Timagotchi.hasPooped &&
-                            <img style={{ marginTop: '20%' }} src="https://www.pngfind.com/pngs/b/42-427701_exclamation-point-png.png" width="20" height="50" />}
+                            <img className='animate__animated animate__wobble animate__infinite' style={{ marginTop: '20%' }} src="https://www.pngfind.com/pngs/b/42-427701_exclamation-point-png.png" width="20" height="50" />}
+
                     </div>
                 </div>
                 <div className="mt-3 text-center" id={styles.text}>

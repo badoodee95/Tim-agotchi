@@ -47,6 +47,12 @@ export default function Timagotchi({ timagotchi }) {
         cleanButton = <button className="btn btn-success mx-1" onClick={handleClean}>Clean</button>;
     }
 
+    if (timagotchi.alive === false) {
+        feedButton = <button className="btn btn-secondary mx-1 disabled">Feed</button>;
+        playButton = <button className="btn btn-secondary mx-1 disabled">Play</button>;
+        cleanButton = <button className="btn btn-secondary mx-1 disabled">Clean</button>;
+    }
+
     const [hungry, setHungry] = useState(feedButton);
     const [bored, setBored] = useState(playButton);
     const [clean, setClean] = useState(cleanButton);
@@ -103,11 +109,17 @@ export default function Timagotchi({ timagotchi }) {
         if (timagotchi.alive === false) {
             alert('You cannot release a dead timagotchi!');
         } else {
-            if (confirm('Are you sure you want to release your timagotchi?')) {
-                if (confirm('Are you really sure? Once you release your timagotchi, you cannot get it back!')) {
+            if (confirm(`Are you sure you want to release ${timagotchi.name}?`)) {
+                let gender;
+                if (timagotchi.gender === 'male') {
+                    gender = 'he';
+                } else {
+                    gender = 'she';
+                }
+                if (confirm(`Are you really sure? Once you release ${timagotchi.name}, ${gender}'s gone forever!!`)) {
                     axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL}/timagotchis/${timagotchi._id}`)
                         .then(response => {
-                            alert('Your timagotchi has been released!');
+                            alert(`${timagotchi.name} has been released to the wild!`);
                             router.push(`/users/profile/${userId}`);
                         })
                         .catch(error => {
@@ -130,7 +142,7 @@ export default function Timagotchi({ timagotchi }) {
         <>
             <title>tim-agotchi</title>
             <div id={styles.backgroundTimagotchiImage}>
-                <div className="card" style={{ maxWidth: '35%', marginLeft: '33%', marginTop: '5%', paddingLeft: '1%', paddingTop: '1%' }}>
+                <div className="card" id={styles.timCard} >
                     <div className="row justify-content-center align-items-center">
                         <div className="col-md-12 text-center">
                             <h2 className='fontChange'>{timagotchi.name.toUpperCase()}</h2>
@@ -144,12 +156,12 @@ export default function Timagotchi({ timagotchi }) {
                                 {timPoop && timagotchi.user[0] === userId ?
                                     <div style={{ marginTop: '76%' }}>
                                         <a onClick={handlePoop} className={styles.timPoop}>
-                                            <img src='https://i.imgur.com/Z4pfFD7.png' alt='Timagotchi poop' className='' />
+                                            <img src='https://i.imgur.com/Z4pfFD7.png' alt='Timagotchi poop' className='animate__animated animate__bounce animate__infinite' />
                                         </a>
                                     </div>
                                     : timPoop && timagotchi.user[0] !== userId ?
                                         <div style={{ marginTop: '76%' }}>
-                                            <img src='https://i.imgur.com/Z4pfFD7.png' alt='Timagotchi poop' className='' />
+                                            <img src='https://i.imgur.com/Z4pfFD7.png' alt='Timagotchi poop' className='animate__animated animate__bounce animate__infinite' />
                                         </div>
                                         : null
                                 }

@@ -1,15 +1,17 @@
 'use client';
 import MyTimagotchiList from '@/app/components/MyTimagotchisList';
 import 'bootstrap/dist/css/bootstrap.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import EditModal from '@/app/components/EditModal';
 import styles from '@/app/profile.module.css';
 import axios from 'axios';
-import { LoadingCircle, LoadingLine } from '@/app/components/Loading';
+import jwtDecode from 'jwt-decode';
+import setAuthToken from '@/app/utils/setAuthToken';
+import { LoadingCircle } from '@/app/components/Loading';
+import 'animate.css';
 
 export default function ProfileTest() {
-    const [authUserId, setAuthUserId] = useState('');
     const { userId } = useParams();
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -19,26 +21,36 @@ export default function ProfileTest() {
     };
 
     useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${userId}`);
-                setUser(response.data.user);
-                setIsLoading(false);
-            } catch (error) {
-                console.log('Error fetching user data', error);
-            }
-        };
+        setAuthToken(localStorage.getItem('jwtToken'));
+        if (localStorage.getItem('jwtToken')) {
+            axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users`)
+                .then((response) => {
+                    let userData = jwtDecode(localStorage.getItem('jwtToken'));
+                    if (userData.email === localStorage.getItem('email')) {
+                        const fetchUserData = async () => {
+                            try {
+                                const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${userId}`);
+                                setUser(response.data.user);
+                                setIsLoading(false);
+                            } catch (error) {
+                                console.log('Error fetching user data', error);
+                            }
+                        };
 
-        fetchUserData();
+                        fetchUserData();
 
-        if (typeof window !== 'undefined') {
-            setAuthUserId(localStorage.getItem('userId'));
+                    } else {
+                        router.push('/users/login');
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                    router.push('/users/login');
+                });
+        } else {
+            router.push('/users/login');
         }
-    }, [userId]);
-
-    if (authUserId === null) {
-        router.push('/users/login');
-    }
+    }, [router, userId]);
 
     if (isLoading) return (<LoadingCircle />);
 
@@ -49,7 +61,7 @@ export default function ProfileTest() {
                 <div className="container" style={{ marginTop: '60px' }}>
                     <div className="main-body" >
                         <div className="row gutters-sm" style={{ justifyContent: 'center' }}>
-                            <div className="col-lg-2 mb-2">
+                            <div className={`animate__animated animate__fadeInLeft ${styles.profilePicPosition} col-lg-2 mb-2`} id={styles.profilePicPosition} >
                                 <div className="card mt-4" id={styles.profileBorder} >
                                     <div className="card-body" id={styles.profileImagePlacement}>
                                         <div className="d-flex flex-column align-items-center text-center">
@@ -58,14 +70,14 @@ export default function ProfileTest() {
                                     </div>
                                 </div>
                                 <div className="row mt-4">
-                                    <div className="col-sm-12 d-flex justify-content-center">
-                                        <div className="col-sm-12 d-flex justify-content-center me-3">
+                                    <div className="col-sm-12 d-flex ">
+                                        <div >
                                             <EditModal user={user} reload={reload} />
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-8 mt-4">
+                            <div className="animate__animated animate__fadeInRight col-md-8 mt-4">
                                 <div className="mt-2">
                                 </div>
                                 <div className="card mb-3" id={styles.profileInfoBorder}>
