@@ -121,9 +121,10 @@ export default function EditModal({ user, reload }) {
                         <Button variant="primary" type='submit' onSubmit={handleSubmit} onClick={handleClose} id={styles.buttonText}>
                             SAVE CHANGES
                         </Button>
-                        <Button variant="danger" type='submit' onClick={handleDelete} id={styles.buttonText}>
-                            DELETE ACCOUNT
-                        </Button>
+                        {localStorage.getItem('userId') === user._id ? "" :
+                            <Button variant="danger" type='submit' onClick={handleDelete} id={styles.buttonText}>
+                                DELETE ACCOUNT
+                            </Button>}
                     </Modal.Footer>
                 </Form>
             </Modal>
