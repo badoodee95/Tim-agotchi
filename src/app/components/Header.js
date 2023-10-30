@@ -48,13 +48,13 @@ export default function Header() {
         };
     }, []);
 
-    const demo_email = process.env.NEXT_PUBLIC_DEMO_EMAIL;
-    const demo_password = process.env.NEXT_PUBLIC_DEMO_PASS;
+    const email = process.env.NEXT_PUBLIC_DEMO_EMAIL;
+    const password = process.env.NEXT_PUBLIC_DEMO_PASS;
 
     const handleSubmit = (e) => {
         e.preventDefault(); // at the beginning of a submit function
 
-        axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/login`, { email: demo_email, password: demo_password })
+        axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/login`, { email, password })
             .then(response => {
                 if (typeof window !== 'undefined') {
                     localStorage.setItem('jwtToken', response.data.token);
